@@ -1,0 +1,196 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  position: fixed;
+  height: 5vh;
+  width: 100%;
+  z-index: 10;
+}
+
+.header-bg {
+  background-color: rgba(0, 0, 0, 0.85);
+  transition: 0.5s;
+}
+
+.nav-menu {
+  display: flex;
+}
+
+.nav-menu li {
+  padding: 0 1rem;
+  color: white;
+  text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+  transition: text-decoration-color 300ms;
+  cursor: pointer;
+}
+
+.nav-menu li:hover {
+  color: rgb(122, 25, 25);
+  transition: all 0.2s ease;
+  text-decoration-color: rgb(105, 47, 47);
+  text-shadow: rgb(121, 108, 111) 0.1em 0.1em 0.2em;
+}
+
+.nav-login {
+  display: flex;
+}
+
+.nav-icon {
+  color: white;
+  margin-left: 0.5rem;
+}
+
+.hamburguer {
+  display: none;
+}
+
+/*{SUBMENU}*/
+.sub-menu {
+  display: none;
+}
+
+.children {
+  display: block;
+  position: absolute;
+  text-align: center;
+  width: 15%;
+  margin-top: 10px;
+  background-color: rgba(34, 34, 34, 0.479);
+  border-bottom: 2.5px solid white;
+  border-top: 2.5px solid white;
+  z-index: 2;
+}
+
+.children .sub-li {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  font-size: 0.9rem;
+  color: white;
+  text-shadow: none;
+}
+
+.children .sub-li:hover {
+  color: crimson;
+  font-weight: bolder;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+/*{ICONOS}*/
+.material-icons {
+  font-family: "Material Icons";
+  margin-top: 4px;
+  float: right;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.1rem;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: beige;
+}
+
+@media screen and (max-width: 740px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: left;
+    padding-top: 10rem;
+    width: 100%;
+    height: 100vh;
+    background: #111;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 1; /*{Para que este encima de .cuenta-menu que tiene 0 de z-index aca puse 1 mas}*/
+    transition: 0.3s;
+  }
+
+  .nav-menu li {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    padding-bottom: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .hamburguer {
+    display: initial;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .nav-menu li .sub-menu {
+    display: none;
+  }
+
+  .children {
+    display: block;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #222;
+    border-bottom: 2.5px solid white;
+    border-top: 2.5px solid white;
+  }
+
+  .children .sub-li {
+    display: block;
+    overflow: hidden;
+    padding: 0.2rem 0em;
+    color: white;
+    margin-left: 1em;
+    font-size: 0.9rem;
+  }
+
+  .cuenta-menu {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100vh;
+    background-color: rgba(17, 17, 17, 0.959);
+    border-left: ivory solid 2px;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    z-index: 0;
+    transition: 0.3s;
+  }
+
+  /*{HOVERS}*/
+
+  .nav-menu li {
+    text-decoration: none;
+    transition: none;
+  }
+
+  .nav-menu li:hover {
+    color: white;
+    transition: none;
+    text-decoration-color: none;
+    text-shadow: none;
+  }
+
+  .sub-perfil:hover {
+    color: crimson;
+    transition: all 0.2s ease;
+  }
+}
