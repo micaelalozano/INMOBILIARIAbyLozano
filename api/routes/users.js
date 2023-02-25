@@ -1,5 +1,5 @@
 const express = require("express");
-const { generateToken, validateToken } = require("../utils/tokens"); //Para poder hacer el login con Auth
+const { generateToken, validateToken } = require("../utils/token"); //Para poder hacer el login con Auth
 const { validateAuth } = require("../middlewares/auth");
 const { Users } = require("../models");
 const router = express.Router();
