@@ -18,9 +18,15 @@
   display: flex;
 }
 
+.titulo{
+  color: white;
+  font-weight: bolder;
+}
+
 .nav-menu li {
   padding: 0 1rem;
   color: white;
+  font-weight: bolder;
   text-decoration: underline 0.15em rgba(255, 255, 255, 0);
   transition: text-decoration-color 300ms;
   cursor: pointer;
@@ -40,6 +46,8 @@
 .nav-icon {
   color: white;
   margin-left: 0.5rem;
+  font-weight: bolder;
+
 }
 
 .hamburguer {
@@ -84,6 +92,7 @@
 .material-icons {
   font-family: "Material Icons";
   margin-top: 4px;
+  font-weight: bolder;
   float: right;
   font-weight: normal;
   font-style: normal;

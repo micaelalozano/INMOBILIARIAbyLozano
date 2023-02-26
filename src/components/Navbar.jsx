@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import SearchIcon from "@mui/icons-material/Search";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import LoginIcon from "@mui/icons-material/Login";
 //Estilos
 import "../estilos/navbar.css";
@@ -36,12 +36,12 @@ const Navbar = () => {
           )}
         </div>
         <div>
-          <h3>ByLozano</h3>
+          <h3 className="titulo">ByLozano</h3>
         </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
-          <li>
-            <Link to="/">Inicio</Link>
-          </li>
+          <Link to="/">
+            <li>Inicio</li>
+          </Link>
 
           <li onClick={handleClickDos}>
             Propiedades <span className="material-icons">expand_more</span>
@@ -57,15 +57,14 @@ const Navbar = () => {
               </Link>
             </ul>
           </li>
-
-          <li>
-            <Link to="/">Acerca de</Link>
-          </li>
+          <Link to="/">
+            <li>Acerca de</li>
+          </Link>
         </ul>
-        
+
         <div className="nav-login">
           <Link to="/search">
-            <SearchIcon className="nav-icon" sx={{ fontSize: 20 }} />
+            <FavoriteBorderIcon className="nav-icon" sx={{ fontSize: 20 }} />
           </Link>
           <Link to="/login">
             <LoginIcon className="nav-icon" sx={{ fontSize: 20 }} />
