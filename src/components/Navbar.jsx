@@ -30,9 +30,9 @@ const Navbar = () => {
       <div className={color ? "header header-bg" : "header"}>
         <div className="hamburguer" onClick={handleClick}>
           {click ? (
-            <FaTimes size={23} style={{ color: "#dc143c" }} />
+            <FaTimes size={23} style={{ color: "#ffffff" }} />
           ) : (
-            <FaBars size={23} style={{ color: "#dc143c" }} />
+            <FaBars size={23} style={{ color: "#ffffff" }} />
           )}
         </div>
         <div>
