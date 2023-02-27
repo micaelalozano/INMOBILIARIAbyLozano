@@ -27,16 +27,16 @@
   padding: 0 1rem;
   color: white;
   font-weight: bolder;
-  text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+  text-decoration: underline 0.2em rgba(255, 255, 255, 0);
   transition: text-decoration-color 300ms;
   cursor: pointer;
 }
 
 .nav-menu li:hover {
-  color: rgb(122, 25, 25);
+  color: white;
   transition: all 0.2s ease;
-  text-decoration-color: rgb(105, 47, 47);
-  text-shadow: rgb(121, 108, 111) 0.1em 0.1em 0.2em;
+  text-decoration-color: lightsteelblue;
+  text-shadow: rgba(121, 108, 111, 0.178) 0.1em 0.1em 0.2em;
 }
 
 .nav-login {
@@ -62,27 +62,25 @@
 .children {
   display: block;
   position: absolute;
-  text-align: center;
-  width: 15%;
-  margin-top: 10px;
-  background-color: rgba(34, 34, 34, 0.479);
-  border-bottom: 2.5px solid white;
-  border-top: 2.5px solid white;
+  text-align:left;
+  width: 10%;
+  margin-top: 6px;
+  background-color: rgba(0, 0, 0, 0.795);
   z-index: 2;
 }
 
 .children .sub-li {
   display: block;
   overflow: hidden;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-  font-size: 0.9rem;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
   color: white;
   text-shadow: none;
 }
 
 .children .sub-li:hover {
-  color: crimson;
+  color: lightsteelblue;
   font-weight: bolder;
   text-decoration: none;
   text-shadow: none;
@@ -126,7 +124,7 @@
     font-weight: 500;
     color: white;
     cursor: pointer;
-    padding-bottom: 1em;
+    padding-bottom: 2em;
     margin-left: 2em;
     margin-right: 2em;
   }
@@ -141,7 +139,7 @@
     cursor: pointer;
   }
 
-  .logo {
+  .titulo {
     display: none;
   }
 
@@ -154,7 +152,7 @@
     position: relative;
     text-align: left;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: #222;
     border-bottom: 2.5px solid white;
     border-top: 2.5px solid white;
@@ -166,7 +164,7 @@
     padding: 0.2rem 0em;
     color: white;
     margin-left: 1em;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .cuenta-menu {
