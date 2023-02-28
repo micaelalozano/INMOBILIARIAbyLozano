@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import Inicio from "./pages/Inicio";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -21,6 +23,8 @@ const App = () => {
       <>
         <Routes>
           <Route path="/" element={<Inicio />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registrarme" element={<Register/>} />
         </Routes>
       </>
     );

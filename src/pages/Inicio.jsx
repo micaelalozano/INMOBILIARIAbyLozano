@@ -9,6 +9,9 @@ const Inicio = () => {
     <>
       <Navbar />
       <HeroImage />
+      <h2 className="h2">
+        <span className="span">Barrios</span>
+      </h2>
       <div className="card-container">
         <div className="card">
           <img
@@ -24,17 +27,10 @@ const Inicio = () => {
             alt="Poster"
           />
         </div>
-        <div className="card-dos-t">
+        <div className="card-tres">
           <img
             className="card-poster"
-            src="https://static.mirandabosch.com/mb/barrios/palermo/palermo-portada.jpg"
-            alt="Poster"
-          />
-        </div>
-        <div className="card">
-          <img
-            className="card-poster"
-            src="https://static.mirandabosch.com/mb/barrios/libertador/libertador-portada.jpg"
+            src="https://funnytimestravel.com/wp-content/uploads/2019/12/bairro-palermo-em-buenos-aires.jpg"
             alt="Poster"
           />
         </div>
