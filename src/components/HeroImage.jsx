@@ -17,7 +17,6 @@ const HeroImage = () => {
             </ul>
           </div>
         </div>
-        <div className="aca"><img className="img" src="https://media.admagazine.com/photos/61e5acc706c10ae95c71b902/16:9/w_2560%2Cc_limit/New-York-skyline.jpg" alt="" /></div>
       </div>
     </>
   );
