@@ -18,7 +18,7 @@
   display: flex;
 }
 
-.titulo{
+.titulo {
   color: white;
   font-weight: bolder;
 }
@@ -41,13 +41,12 @@
 
 .nav-login {
   display: flex;
+  align-items: center;
 }
 
 .nav-icon {
   color: white;
   margin-left: 0.5rem;
-  font-weight: bolder;
-
 }
 
 .hamburguer {
@@ -62,7 +61,7 @@
 .children {
   display: block;
   position: absolute;
-  text-align:left;
+  text-align: left;
   width: 10%;
   margin-top: 6px;
   background-color: rgba(0, 0, 0, 0.795);
@@ -102,6 +101,22 @@
   white-space: nowrap;
   direction: ltr;
   color: beige;
+}
+
+/*{DIV CON FOTO DE PERFIL}*/
+
+.perfil-div {
+  margin-left: 0.5rem;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: white solid 2px;
+  overflow: hidden;
+}
+
+.img-perfil {
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 740px) {
@@ -199,5 +214,13 @@
   .sub-perfil:hover {
     color: crimson;
     transition: all 0.2s ease;
+  }
+
+  /*{DIV CON FOTO DE PERFIL}*/
+
+  .perfil-div {
+    width: 30px;
+    height: 30px;
+    margin-top: -0.5em;
   }
 }
