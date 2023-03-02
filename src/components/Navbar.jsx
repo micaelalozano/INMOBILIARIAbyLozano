@@ -1,13 +1,18 @@
-import React, { useState } from "react";
-//import axios from "axios";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LoginIcon from "@mui/icons-material/Login";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 //Estilos
 import "../estilos/navbar.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState({});
+
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
@@ -24,6 +29,25 @@ const Navbar = () => {
   };
 
   window.addEventListener("scroll", changeColor);
+
+  useEffect(() => {
+    axios
+      .get("/api/users/ruta/perfil")
+      .then((res) => res.data)
+      .then((user) => {
+        setUser(user);
+      });
+  }, []);
+
+  const handleLogout = () => {
+    axios
+      .post("/api/users/logout")
+      .then((res) => res.data)
+      .then((user) => {
+        setUser(user);
+        navigate("/");
+      });
+  };
 
   return (
     <>
@@ -63,12 +87,41 @@ const Navbar = () => {
         </ul>
 
         <div className="nav-login">
-          <Link to="/search">
-            <FavoriteBorderIcon className="nav-icon" sx={{ fontSize: 20 }} />
-          </Link>
-          <Link to="/login">
-            <LoginIcon className="nav-icon" sx={{ fontSize: 20 }} />
-          </Link>
+          <>
+            {user.username === "soymicaela" ? (
+              <Link to="/administrador">
+                <AssignmentIndIcon className="nav-icon" sx={{ fontSize: 21 }} />{" "}
+              </Link>
+            ) : null}
+          </>
+          {user.username ? (
+            <>
+              {" "}
+              <Link to="/search">
+                <FavoriteBorderIcon
+                  className="nav-icon"
+                  sx={{ fontSize: 20 }}
+                />
+              </Link>
+              <Link to="/">
+                <div  className="perfil-div" onClick={handleLogout}>
+                  <img className="img-perfil" src={user.imagen} alt="perfil" />
+                </div>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/search">
+                <FavoriteBorderIcon
+                  className="nav-icon"
+                  sx={{ fontSize: 20 }}
+                />
+              </Link>
+              <Link to="/login">
+                <LoginIcon className="nav-icon" sx={{ fontSize: 20 }} />
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </>
