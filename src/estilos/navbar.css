@@ -103,6 +103,64 @@
   color: beige;
 }
 
+/*{TOOLTIP}*/
+
+.tooltip{
+  position: relative;
+}
+
+.tooltip:before{
+  content: attr(mensaje);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: max-content;
+  max-width: 160px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  border: white solid 0.5px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  pointer-events: none;
+  transition: opacity .3s;
+  z-index: 10;
+  opacity: 0;
+}
+
+.tooltip:hover::before{
+  opacity: 1;
+}
+
+.tooltip-2{
+  position: relative;
+}
+
+.tooltip-2:before{
+  content: attr(mensaje);
+  position: absolute;
+  top: 220%;
+  right: 0;
+  width: max-content;
+  max-width: 160px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  border: white solid 0.5px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  pointer-events: none;
+  transition: opacity .3s;
+  z-index: 10;
+  opacity: 0;
+}
+
+.tooltip-2:hover::before{
+  opacity: 1;
+}
+
 /*{DIV CON FOTO DE PERFIL}*/
 
 .perfil-div {

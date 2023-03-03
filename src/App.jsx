@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Inicio from "./pages/Inicio";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Propiedades from "./pages/Propiedades";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/" element={<Inicio />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registrarme" element={<Register/>} />
+          <Route path="/ver_todo=propiedades" element={<Propiedades/>} />
         </Routes>
       </>
     );
