@@ -8,8 +8,9 @@ import LoginIcon from "@mui/icons-material/Login";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 //Estilos
 import "../estilos/navbar.css";
+import "../estilos/navbarDos.css";
 
-const Navbar = () => {
+const NavbarDos = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
 
@@ -18,17 +19,6 @@ const Navbar = () => {
 
   const [clickDos, setClickDos] = useState(false);
   const handleClickDos = () => setClickDos(!clickDos);
-
-  const [color, setColor] = useState(false);
-  const changeColor = () => {
-    if (window.scrollY >= 10) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-  };
-
-  window.addEventListener("scroll", changeColor);
 
   useEffect(() => {
     axios
@@ -51,7 +41,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={color ? "header header-bg" : "header"}>
+      <div className="header-navbar-dos">
         <div className="hamburguer" onClick={handleClick}>
           {click ? (
             <FaTimes size={23} style={{ color: "#ffffff" }} />
@@ -69,7 +59,7 @@ const Navbar = () => {
 
           <li onClick={handleClickDos}>
             Propiedades <span className="material-icons">expand_more</span>
-            <ul className={clickDos ? "children" : "sub-menu"}>
+            <ul className={clickDos ? "children-navbar-dos" : "sub-menu"}>
               <Link to="/ver_todo=propiedades">
                 <li className="sub-li">Ver todo</li>
               </Link>
@@ -111,7 +101,7 @@ const Navbar = () => {
               </Link>
               <Link to="/">
                 <span className="tooltip-2" mensaje="Cerrar Sesión">
-                  <div className="perfil-div" onClick={handleLogout}>
+                  <div className="perfil-div-dos" onClick={handleLogout}>
                     <img
                       className="img-perfil"
                       src={user.imagen}
@@ -144,4 +134,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarDos;
