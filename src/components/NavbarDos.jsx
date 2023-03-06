@@ -60,13 +60,13 @@ const NavbarDos = () => {
           <li onClick={handleClickDos}>
             Propiedades <span className="material-icons">expand_more</span>
             <ul className={clickDos ? "children-navbar-dos" : "sub-menu"}>
-              <Link to="/ver_todo=propiedades">
+              <Link to="/propiedades=ver_todo">
                 <li className="sub-li">Ver todo</li>
               </Link>
-              <Link to="/">
+              <Link to="/propiedades=en_venta">
                 <li className="sub-li">En venta</li>
               </Link>
-              <Link to="/">
+              <Link to="/propiedades=en_alquiler">
                 <li className="sub-li">En alquiler</li>
               </Link>
             </ul>
