@@ -7,11 +7,10 @@ import Pagination from "@mui/material/Pagination";
 //Estilos
 import "../estilos/propiedades.css";
 
-const Propiedades = () => {
+const Alquiler = () => {
   const [propiedades, setPropiedades] = useState([]);
   const [page, setPage] = useState(0);
   const [numberOfPages, setNumberOfPages] = useState(0);
-
 
   const handleChange = (e, page) => {
     setPage(page);
@@ -24,19 +23,29 @@ const Propiedades = () => {
       .then((res) => res.data)
       .then((propiedades) => {
         setPropiedades(propiedades.content);
-        setNumberOfPages(propiedades.content?.total_pages)
+        setNumberOfPages(propiedades.content?.total_pages);
       })
       .catch();
   }, [page]);
 
-  console.log("estas son las", propiedades);
+
+  //Filtrar clase de producto:
+  let alquiler = [];
+  for (let i = 0; i < propiedades.length; i++) {
+    if (propiedades[i].disponibilidad === "Alquiler") {
+      alquiler.push(propiedades[i]);
+    }
+  }
+  ///////////////////////////////////////
+
+  console.log("estas son los alquiler", alquiler);
 
   return (
     <>
       <NavbarDos />
       <ul>
         <div className="card-list">
-          {propiedades.map(function (e, i) {
+          {alquiler.map(function (e, i) {
             return (
               <li key={i}>
                 <div className="card-item">
@@ -75,4 +84,4 @@ const Propiedades = () => {
   );
 };
 
-export default Propiedades;
+export default Alquiler;

@@ -13,46 +13,8 @@
   overflow: hidden;
 }
 
-.card-dos {
-  width: 100%;
-  height: 50vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-tres {
-  width: 100%;
-  height: 50vh;
-  position: relative;
-  overflow: hidden;
-}
-
 .card::after {
-  content: "RECOLETA";
-  font-size: 17px;
-  font-weight: 500;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.405);
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-}
-
-.card-dos::after {
-  content: "PUERTO MADERO";
-  font-size: 17px;
-  font-weight: 500;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.405);
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-}
-
-.card-tres::after {
-  content: "PALERMO";
+  content: attr(mensaje);
   font-size: 17px;
   font-weight: 500;
   color: white;
@@ -101,7 +63,6 @@
 
 @media screen and (max-width: 740px) {
   .card-container {
-  
     grid-template-columns: repeat(1, 1fr);
   }
 }

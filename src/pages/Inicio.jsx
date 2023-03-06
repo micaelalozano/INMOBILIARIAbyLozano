@@ -13,21 +13,21 @@ const Inicio = () => {
         <span className="span">Barrios</span>
       </h2>
       <div className="card-container">
-        <div className="card">
+        <div className="card" mensaje="RECOLETA">
           <img
             className="card-poster"
             src="https://static.mirandabosch.com/mb/barrios/recoleta/recoleta-portada.jpg"
             alt="Poster"
           />
         </div>
-        <div className="card-dos">
+        <div className="card" mensaje="PUERTO MADERO">
           <img
             className="card-poster"
             src="https://static.mirandabosch.com/mb/barrios/madero/madero-portada.jpg"
             alt="Poster"
           />
         </div>
-        <div className="card-tres">
+        <div className="card" mensaje="PALERMO">
           <img
             className="card-poster"
             src="https://funnytimestravel.com/wp-content/uploads/2019/12/bairro-palermo-em-buenos-aires.jpg"

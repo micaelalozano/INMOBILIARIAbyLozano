@@ -1,7 +1,7 @@
 .card-list {
   margin-top: 3em;
   margin-bottom: 2em;
-  padding: 0em 2em;
+  padding: 0em 3em;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
@@ -11,6 +11,7 @@
 .card-item {
   width: 100%;
   height: 100%;
+  border: solid rgba(17, 17, 17, 0.644) 1px;
   position: relative;
 }
 
@@ -26,32 +27,112 @@
 }
 
 .p1 {
-  position: absolute;
   display: flex;
-  padding: 0em 1em;
+  font-size: 5px;
+  margin:  2em;
+  padding: 1em;
+  border-radius: 100px;
   width: fit-content;
-  justify-content: flex-start;
-  background-color: aqua;
-  color: brown;
-  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.336);
+  position: absolute;
+  cursor: pointer;
 }
 
-.p2 {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.p3 {
+.card-bot {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1em;
+  position: absolute;
+  bottom: 0;
+}
+
+.direccion{
+  padding: 1px 5px;
+  background-color: white;
+  color: #222;
+  font-weight: 400;
+  font-size: 13px;
+  border: white solid 2px;
+  border-radius: 5px;
+}
+
+.btn-mas{
+  padding: 1px 5px;
+  background-color: white;
+  color: #222;
+  font-weight: 400;
+  font-size: 13px;
+  border: white solid 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-mas:hover{
+  padding: 1px 5px;
+  background-color: rgba(255, 255, 255, 0.171);
+  color: white;
+  font-weight: 400;
+  font-size: 13px;
+  border: white solid 2px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 440px) {
+  .card-list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+    overflow: hidden;
+  }
+
+  .direccion{
+    padding: 1px 5px;
+    background-color: white;
+    color: #222;
+    font-weight: 400;
+    font-size: 11px;
+    border: white solid 2px;
+    border-radius: 5px;
+  }
+  
+  .btn-mas{
+    padding: 1px 5px;
+    background-color: white;
+    color: #222;
+    font-weight: 400;
+    font-size: 11px;
+    border: white solid 2px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 740px) {
+  .card-list {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+    overflow: hidden;
+  }
+}
+
+/*{de 600 para arriba}*/
+
+@media screen and (min-width: 740px) {
   .card-list {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
     overflow: hidden;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .card-list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    overflow: hidden;
+  }
+}
+
+
+
+

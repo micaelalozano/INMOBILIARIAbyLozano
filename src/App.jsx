@@ -5,6 +5,8 @@ import Inicio from "./pages/Inicio";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Propiedades from "./pages/Propiedades";
+import Venta from "./pages/Venta";
+import Alquiler from "./pages/Alquiler";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -26,7 +28,9 @@ const App = () => {
           <Route path="/" element={<Inicio />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registrarme" element={<Register/>} />
-          <Route path="/ver_todo=propiedades" element={<Propiedades/>} />
+          <Route path="/propiedades=ver_todo" element={<Propiedades/>} />
+          <Route path="/propiedades=en_venta" element={<Venta/>} />
+          <Route path="/propiedades=en_alquiler" element={<Alquiler/>} />
         </Routes>
       </>
     );
