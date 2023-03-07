@@ -1,0 +1,120 @@
+.perfil-portada {
+  display: flex;
+  margin: 0 3em;
+  justify-content: center;
+  position: relative;
+  height: 30vh;
+}
+
+.portada-img {
+  width: 100%;
+  height: 100%;
+}
+
+.perfil-portada::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backdrop-filter: blur(30px);
+}
+
+.div-perfil-img {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 170px;
+  z-index: 1;
+  bottom: -22%;
+}
+
+.perfil-img {
+  width: 170px;
+  height: 100%;
+  margin-left: 0.5em;
+  margin-right: 2em;
+  border-radius: 100px;
+  border: solid white 3px;
+  z-index: 1;
+}
+
+.info-user {
+  display: flex;
+  align-items: center;
+  height: 6vh;
+  justify-content: space-between;
+  padding-left: 11em;
+  margin-right: 3em;
+  margin-left: 3em;
+  border-bottom: silver solid 1px;
+}
+
+.items-perfil {
+  display: flex;
+  z-index: 2;
+}
+
+.cuenta-logo {
+  float: left;
+  margin-top: 3px;
+  margin-right: 2px;
+  color: hotpink;
+}
+
+.icons-color {
+  margin-right: 10px;
+  color: hotpink;
+  cursor: pointer;
+}
+
+.username {
+  font-size: 33px;
+  font-weight: bolder;
+  color: white;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+    1px -1px 1px #000;
+}
+
+.username::first-letter {
+  text-transform: uppercase;
+}
+
+.names {
+  font-size: 17px;
+  color: dimgray;
+}
+
+.names::first-letter {
+  text-transform: uppercase;
+}
+
+/*{TOOLTIP}*/
+
+.tooltip-perfil {
+  position: relative;
+}
+
+.tooltip-perfil:before {
+  content: attr(mensaje);
+  position: absolute;
+  top: 160%;
+  right: 0%;
+  width: max-content;
+  max-width: 160px;
+  background-color: rgba(34, 34, 34, 0.76);
+  color: white;
+  border: none;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 10;
+  opacity: 0;
+}
+
+.tooltip-perfil:hover::before {
+  opacity: 1;
+}

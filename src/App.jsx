@@ -7,6 +7,8 @@ import Register from "./pages/Register";
 import Propiedades from "./pages/Propiedades";
 import Venta from "./pages/Venta";
 import Alquiler from "./pages/Alquiler";
+import Favoritos from "./pages/Favoritos";
+import CambiarPerfil from "./components/CambiarPerfil";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -28,6 +30,8 @@ const App = () => {
           <Route path="/" element={<Inicio />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registrarme" element={<Register/>} />
+          <Route path="/mis_favoritos" element={<Favoritos/>} />
+          <Route path="/cambiar-foto-de-perfil" element={<CambiarPerfil/>} />
           <Route path="/propiedades=ver_todo" element={<Propiedades/>} />
           <Route path="/propiedades=en_venta" element={<Venta/>} />
           <Route path="/propiedades=en_alquiler" element={<Alquiler/>} />
