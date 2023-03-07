@@ -101,7 +101,7 @@ const Navbar = () => {
           </>
           {user.username ? (
             <>
-              <Link to="/search">
+              <Link to="/mis_favoritos">
                 <span className="tooltip" mensaje="Mis favoritos">
                   <FavoriteBorderIcon
                     className="nav-icon"
@@ -123,7 +123,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/search">
+              <Link to="/mis_favoritos">
                 <span className="tooltip" mensaje="Mis favoritos">
                   <FavoriteBorderIcon
                     className="nav-icon"
