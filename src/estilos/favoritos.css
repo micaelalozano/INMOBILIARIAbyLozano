@@ -118,3 +118,64 @@
 .tooltip-perfil:hover::before {
   opacity: 1;
 }
+
+@media screen and (max-width: 700px) {
+  .perfil-portada {
+    margin: 0em;
+    height: 27vh;
+  }
+
+  .div-perfil-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    padding-right: 1em;
+    width: 100%;
+    height: 150px;
+    z-index: 1;
+    bottom: -22%;
+  }
+
+  .perfil-img {
+    width: 150px;
+    height: 100%;
+    margin-left: 0.5em;
+    margin-right: 1em;
+    border-radius: 100px;
+    border: solid white 3px;
+    z-index: 1;
+  }
+
+  .username {
+    font-size: 25px;
+    font-weight: bolder;
+    color: white;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+      1px -1px 1px #000;
+  }
+
+  .info-user {
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    justify-content: flex-end;
+    margin-right: 0em;
+    margin-left: 0em;
+  }
+
+  .names {
+    display: none;
+  }
+
+  .icons-color {
+    margin-right: 5px;
+    margin-top: 5px;
+    color: hotpink;
+    cursor: pointer;
+  }
+
+  .items-perfil {
+    margin-right: 0.5em;
+  }
+}

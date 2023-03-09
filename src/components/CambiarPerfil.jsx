@@ -1,30 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useParams } from "react-router";
 import axios from "axios";
 //Estilos
 import "../estilos/login.css";
 
 const CambiarPerfil = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
   const [imagen, setImagen] = useState("");
 
-  useEffect(() => {
-    axios
-      .get("/api/users/ruta/perfil")
-      .then((res) => res.data)
-      .then((user) => {
-        setUser(user);
-      });
-  }, []);
+  console.log("id aqui", id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`/api/users/${user.username}`, { imagen }, { withCredentials: true })
+      .put(`/api/users/${id}`, { imagen }, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
-        navigate("/");
+        navigate("/mis_favoritos");
       })
       .catch((err) => {
         window.alert("ERROR");
@@ -35,7 +29,7 @@ const CambiarPerfil = () => {
     <>
       {" "}
       <form className="body-login" onSubmit={handleSubmit}>
-        <p className="iniciar-sesion">INICIAR SESIÓN</p>
+        <p className="iniciar-sesion">CAMBIAR FOTO DE PERFIL</p>
         <div className="form">
           <input
             type="text"
@@ -44,11 +38,13 @@ const CambiarPerfil = () => {
             value={imagen}
           />
           <label className="lbl-nombre">
-            <span className="text-nomb">imagen</span>
+            <span className="text-nomb">URL imagen</span>
           </label>
         </div>
 
-        <button className="boton-sesion" onClick={handleSubmit}>INICIAR</button>
+        <button className="boton-sesion-dos" onClick={handleSubmit}>
+          ACEPTAR
+        </button>
       </form>
     </>
   );

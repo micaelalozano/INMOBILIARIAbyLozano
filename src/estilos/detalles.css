@@ -1,0 +1,144 @@
+.detail-contenedor {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  height: 95vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+.left-detail {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  max-width: 100%;
+  height: 60%;
+  margin-left: 25%;
+  width: 75%;
+  display: flex;
+}
+
+.right-detail {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  height: 60%;
+  width: 77%;
+  display: flex;
+  background-color: lightsteelblue;
+  position: relative;
+}
+
+.imagen-detail {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 100%;
+  position: relative;
+}
+
+.disponibilidad-detail {
+  position: absolute;
+  z-index: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin: 1em;
+  color: white;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+    1px -1px 1px #000;
+  background-color: hotpink;
+}
+
+.i-detail {
+  margin: 1em;
+  font-size: 23px;
+  color: white;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+    1px -1px 1px #000;
+}
+
+.d-detail {
+  margin: 0em 1.5em;
+  font-size: 14px;
+}
+
+.precio-reserva-container {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1.5em;
+  bottom: 0%;
+}
+
+.i-precio {
+  background-color: #222;
+  padding: 4px 6px;
+  border-radius: 5px;
+  color: white;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+    1px -1px 1px #000;
+  font-size: 15px;
+}
+
+.i-reserva {
+  background-color: #222;
+  padding: 4px 6px;
+  border-radius: 5px;
+  color: white;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+    1px -1px 1px #000;
+  font-size: 14.5px;
+}
+
+.i-reserva:hover {
+  background-color: hotpink;
+  padding: 4px 6px;
+  border-radius: 5px;
+  color: white;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+    1px -1px 1px #000;
+  font-size: 14.5px;
+  cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+  .detail-contenedor {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: none;
+    align-items: none;
+    border: none;
+  }
+
+  .left-detail {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 0px;
+    max-width: 100%;
+    height: 55vh;
+    margin-left: 0%;
+    width: 100%;
+    display: flex;
+  }
+
+  .right-detail {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    background-color: lightsteelblue;
+    position: relative;
+  }
+
+  .imagen-detail {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}

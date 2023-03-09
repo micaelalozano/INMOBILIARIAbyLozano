@@ -12,6 +12,7 @@ import "../estilos/navbar.css";
 const Navbar = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
+  const [log, setLog] = useState([]);
 
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -48,6 +49,17 @@ const Navbar = () => {
         navigate("/");
       });
   };
+
+  //User actual data ID
+
+  useEffect(() => {
+    axios
+      .get(`/api/users/${user.username}`)
+      .then((res) => res.data)
+      .then((user) => {
+        setLog(user);
+      });
+  }, [user.username]);
 
   return (
     <>
@@ -89,7 +101,7 @@ const Navbar = () => {
         <div className="nav-login">
           <>
             {user.username === "soymicaela" ? (
-              <Link to="/administrador">
+              <Link to="/panel_administrador">
                 <span className="tooltip" mensaje="Panel Administrador">
                   <AssignmentIndIcon
                     className="nav-icon"
@@ -101,25 +113,35 @@ const Navbar = () => {
           </>
           {user.username ? (
             <>
-              <Link to="/mis_favoritos">
-                <span className="tooltip" mensaje="Mis favoritos">
-                  <FavoriteBorderIcon
-                    className="nav-icon"
-                    sx={{ fontSize: 20 }}
-                  />
-                </span>
-              </Link>
-              <Link to="/">
-                <span className="tooltip-2" mensaje="Cerrar Sesión">
-                  <div className="perfil-div" onClick={handleLogout}>
-                    <img
-                      className="img-perfil"
-                      src={user.imagen}
-                      alt="perfil"
-                    />
-                  </div>
-                </span>
-              </Link>
+              {log.map(function (e, i) {
+                return (
+                  <>
+                    <Link to="/mis_favoritos">
+                      <span className="tooltip" mensaje="Mis favoritos">
+                        <FavoriteBorderIcon
+                          className="nav-icon"
+                          sx={{ fontSize: 20 }}
+                        />
+                      </span>
+                    </Link>
+                    <Link to="/">
+                      <span className="tooltip-2" mensaje="Cerrar Sesión">
+                        <div className="perfil-div" onClick={handleLogout}>
+                          <img
+                            className="img-perfil"
+                            src={
+                              e.imagen
+                                ? e.imagen
+                                : "https://i.pinimg.com/170x/5f/03/10/5f0310152c8429dfbc441e99d5a8e33e.jpg"
+                            }
+                            alt="perfil"
+                          />
+                        </div>
+                      </span>
+                    </Link>
+                  </>
+                );
+              })}
             </>
           ) : (
             <>

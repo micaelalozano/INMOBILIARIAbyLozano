@@ -9,6 +9,9 @@ import Venta from "./pages/Venta";
 import Alquiler from "./pages/Alquiler";
 import Favoritos from "./pages/Favoritos";
 import CambiarPerfil from "./components/CambiarPerfil";
+import Administrador from "./pages/Administrador";
+import Detalles from "./pages/Detalles";
+import Visitas from "./pages/Visitas";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -31,10 +34,13 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/registrarme" element={<Register/>} />
           <Route path="/mis_favoritos" element={<Favoritos/>} />
-          <Route path="/cambiar-foto-de-perfil" element={<CambiarPerfil/>} />
+          <Route path="/cambiar-foto-de-perfil/:id" element={<CambiarPerfil/>} />
+          <Route path="/panel_administrador" element={<Administrador/>} />
           <Route path="/propiedades=ver_todo" element={<Propiedades/>} />
           <Route path="/propiedades=en_venta" element={<Venta/>} />
           <Route path="/propiedades=en_alquiler" element={<Alquiler/>} />
+          <Route path="/propiedades=ver-mas/:prop_id" element={<Detalles/>} />
+          <Route path="/agendar_visita/:prop_id" element={<Visitas/>} />
         </Routes>
       </>
     );

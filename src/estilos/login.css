@@ -116,6 +116,27 @@
   color: lightsteelblue;
 }
 
+.boton-sesion-dos {
+  margin-top: 3em;
+  padding: 5px 25px;
+  background: rgb(248, 73, 166);
+  background: linear-gradient(
+    260deg,
+    rgba(248, 73, 166, 0.897) 0%,
+    rgba(176, 196, 222, 1) 100%
+  );
+  border: solid 2px black;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.boton-sesion-dos:hover {
+  padding: 5px 25px;
+  background: #111;
+  border: solid 2px lightsteelblue;
+  color: lightsteelblue;
+}
+
 @media screen and (max-width: 740px) {
   .form {
     width: 85%;

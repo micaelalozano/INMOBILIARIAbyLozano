@@ -188,7 +188,7 @@
     position: absolute;
     top: 0;
     left: -100%;
-    z-index: 1; /*{Para que este encima de .cuenta-menu que tiene 0 de z-index aca puse 1 mas}*/
+    z-index: 5; /*{Para que este encima de .cuenta-menu que tiene 0 de z-index aca puse 1 mas}*/
     transition: 0.3s;
   }
 
