@@ -96,17 +96,6 @@ const Register = () => {
           </label>
         </div>
 
-        <div className="form">
-          <input
-            type="text"
-            required
-            onChange={(e) => setImagen(e.target.value)}
-            value={imagen}
-          />
-          <label className="lbl-nombre">
-            <span className="text-nomb">Foto de Perfil*</span>
-          </label>
-        </div>
         <Link to="/login">
           <p className="click">Para iniciar sesión haz click aquí</p>
         </Link>

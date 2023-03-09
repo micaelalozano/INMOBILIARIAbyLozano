@@ -11,6 +11,7 @@ import "../estilos/favoritos.css";
 
 const Favoritos = () => {
   const [user, setUser] = useState({});
+  const [log, setLog] = useState([]);
 
   useEffect(() => {
     axios
@@ -21,7 +22,18 @@ const Favoritos = () => {
       });
   }, []);
 
-  console.log("usr data", user);
+  //User actual data ID
+
+  useEffect(() => {
+    axios
+      .get(`/api/users/${user.username}`)
+      .then((res) => res.data)
+      .then((user) => {
+        setLog(user);
+      });
+  }, [user.username]);
+
+  console.log("usr data", log);
 
   return (
     <>
@@ -29,11 +41,17 @@ const Favoritos = () => {
         <>
           <NavbarDos />
           <div className="perfil-portada">
-            <img className="portada-img" src={user.imagen} alt="" />
-            <div className="div-perfil-img">
-              <img className="perfil-img" src={user.imagen} alt="" />
-              <p className="username"> {user.username} </p>
-            </div>
+            {log.map(function (e, i) {
+              return (
+                <>
+                  <img className="portada-img" src={e.imagen} alt="" />
+                  <div className="div-perfil-img">
+                    <img className="perfil-img" src={e.imagen} alt="" />
+                    <p className="username"> {e.username} </p>
+                  </div>
+                </>
+              );
+            })}
           </div>
           <div className="info-user">
             <p className="names">
@@ -43,31 +61,38 @@ const Favoritos = () => {
               />
               {user.name} {user.lastname}{" "}
             </p>
-            <ul className="items-perfil">
-              <Link to="/cambiar-foto-de-perfil">
-                <li>
-                  <span
-                    className="tooltip-perfil"
-                    mensaje="Cambiar foto de perfil"
-                  >
-                    <AddCircleIcon
-                      className="icons-color"
-                      sx={{ fontSize: 21 }}
-                    />
-                  </span>
-                </li>
-              </Link>
-              <li>
-                <span className="tooltip-perfil" mensaje={user.email}>
-                  <MailIcon className="icons-color" sx={{ fontSize: 21 }} />
-                </span>
-              </li>
-              <li>
-                <span className="tooltip-perfil" mensaje="0 favoritos">
-                  <FavoriteIcon className="icons-color" sx={{ fontSize: 21 }} />
-                </span>
-              </li>
-            </ul>
+            {log.map(function (e, i) {
+              return (
+                <ul className="items-perfil">
+                  <Link to={"/cambiar-foto-de-perfil/" + e.id}>
+                    <li>
+                      <span
+                        className="tooltip-perfil"
+                        mensaje="Cambiar foto de perfil"
+                      >
+                        <AddCircleIcon
+                          className="icons-color"
+                          sx={{ fontSize: 21 }}
+                        />
+                      </span>
+                    </li>
+                  </Link>
+                  <li>
+                    <span className="tooltip-perfil" mensaje={user.email}>
+                      <MailIcon className="icons-color" sx={{ fontSize: 21 }} />
+                    </span>
+                  </li>
+                  <li>
+                    <span className="tooltip-perfil" mensaje="0 favoritos">
+                      <FavoriteIcon
+                        className="icons-color"
+                        sx={{ fontSize: 21 }}
+                      />
+                    </span>
+                  </li>
+                </ul>
+              );
+            })}
           </div>
         </>
       ) : (
