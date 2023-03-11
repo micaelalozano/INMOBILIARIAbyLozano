@@ -91,7 +91,7 @@ const NavbarDos = () => {
         <div className="nav-login">
           <>
             {user.username === "soymicaela" ? (
-              <Link to="/panel_administrador">
+              <Link to="/panel_administrador=editar">
                 <span className="tooltip" mensaje="Panel Administrador">
                   <AssignmentIndIcon
                     className="nav-icon"

@@ -10,7 +10,7 @@ const Inicio = () => {
       <Navbar />
       <HeroImage />
       <h2 className="h2">
-        <span className="span">Barrios</span>
+        <span className="span-barrios">Barrios</span>
       </h2>
       <div className="card-container">
         <div className="card" mensaje="RECOLETA">

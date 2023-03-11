@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NavbarDos from "../components/NavbarDos";
+import AdminNavbar from "../components/AdminNavbar";
 
-const Administrador = () => {
+const CrearProp = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
@@ -19,9 +20,12 @@ const Administrador = () => {
       {user.username ? (
         <>
           <NavbarDos />
+          <AdminNavbar />
+          <p>tuki2</p>
         </>
       ) : (
         <>
+          {" "}
           <p>log in</p>
         </>
       )}
@@ -29,4 +33,4 @@ const Administrador = () => {
   );
 };
 
-export default Administrador;
+export default CrearProp;
