@@ -40,6 +40,7 @@
   background-color: rgba(34, 34, 34, 0.767);
   border-radius: 4px;
   border: rgb(192, 192, 192) solid 1px;
+  cursor: pointer;
 }
 
 .btn-edit-delete:hover{
@@ -60,6 +61,7 @@
   background-color: rgba(34, 34, 34, 0.767);
   border-radius: 4px;
   border: rgb(192, 192, 192) solid 1px;
+  cursor: pointer;
 }
 
 .btn-edit-delete-2:hover{
