@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import NavbarDos from "../components/NavbarDos";
 import AdminNavbar from "../components/AdminNavbar";
@@ -33,10 +34,13 @@ const EditarProp = () => {
                       className="tooltip-admin"
                       mensaje="Editar propiedades"
                     >
-                      <button className="btn-edit-delete">
-                        <span className="icon-edit">edit</span>
-                      </button>
+                      <Link to={"/editar-propiedad/" + e.id}>
+                        <button className="btn-edit-delete">
+                          <span className="icon-edit">edit</span>
+                        </button>{" "}
+                      </Link>
                     </span>
+
                     <span
                       className="tooltip-admin-dos"
                       mensaje="Eliminar propiedades"

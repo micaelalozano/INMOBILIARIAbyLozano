@@ -179,3 +179,9 @@
     margin-right: 0.5em;
   }
 }
+
+@media screen and (max-height: 375px) {
+  .perfil-portada {
+    height: 50vh;
+  }
+}
