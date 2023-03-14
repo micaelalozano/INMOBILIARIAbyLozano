@@ -1,0 +1,51 @@
+.create-contenedor {
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+}
+
+.form-class-create {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    width: 100%;
+    max-width: 600px;
+    background-color: #333;
+    border: solid 1px black;
+  }
+
+.create-div {
+  background-color: black;
+  width: 100%;
+  max-width: 600px;
+}
+
+.label-create {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: lightsteelblue;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+    1px -1px 1px #000;
+  }
+
+.new-prop {
+  display: flex;
+  align-items: center;
+  padding: 5px 1em;
+  font-size: 15px;
+  color: lightsteelblue;
+}
+
+.add-prop-icon {
+  margin-right: 5px;
+}
+
+.btn-div-create {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+}

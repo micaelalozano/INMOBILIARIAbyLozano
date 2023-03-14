@@ -26,11 +26,11 @@ router.post("/", (req, res) => {
 router.get("/", (req, res) => {
   const { page } = req.query;
 
-  Propiedades.findAndCountAll({ limit: 9, offset: page * 9 })
+  Propiedades.findAndCountAll({ limit: 15, offset: page * 15 })
     .then((data) => {
       res
         .status(200)
-        .send({ content: data.rows, totalPages: Math.ceil(data.count / 9) });
+        .send({ content: data.rows, totalPages: Math.ceil(data.count / 15) });
     })
     .catch((error) => {
       console.log(error);

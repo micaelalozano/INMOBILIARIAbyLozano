@@ -62,7 +62,8 @@
   display: block;
   position: absolute;
   text-align: left;
-  width: 10%;
+  width: 100%;
+  max-width: 150px;
   margin-top: 6px;
   background-color: rgba(0, 0, 0, 0.795);
   z-index: 2;
@@ -105,11 +106,11 @@
 
 /*{TOOLTIP}*/
 
-.tooltip{
+.tooltip {
   position: relative;
 }
 
-.tooltip:before{
+.tooltip:before {
   content: attr(mensaje);
   position: absolute;
   top: 130%;
@@ -124,20 +125,20 @@
   border-radius: 5px;
   font-size: 13px;
   pointer-events: none;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
   z-index: 10;
   opacity: 0;
 }
 
-.tooltip:hover::before{
+.tooltip:hover::before {
   opacity: 1;
 }
 
-.tooltip-2{
+.tooltip-2 {
   position: relative;
 }
 
-.tooltip-2:before{
+.tooltip-2:before {
   content: attr(mensaje);
   position: absolute;
   top: 250%;
@@ -152,12 +153,12 @@
   border-radius: 5px;
   font-size: 13px;
   pointer-events: none;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
   z-index: 10;
   opacity: 0;
 }
 
-.tooltip-2:hover::before{
+.tooltip-2:hover::before {
   opacity: 1;
 }
 
@@ -188,7 +189,7 @@
     position: absolute;
     top: 0;
     left: -100%;
-    z-index: 5; /*{Para que este encima de .cuenta-menu que tiene 0 de z-index aca puse 1 mas}*/
+    z-index: 5; /*{Para que este encima de .cuenta-menu que tiene 0 de z-index aca puse 5 mas}*/
     transition: 0.3s;
   }
 

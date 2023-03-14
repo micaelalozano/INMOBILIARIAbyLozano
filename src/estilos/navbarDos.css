@@ -18,7 +18,8 @@
   display: block;
   position: absolute;
   text-align: left;
-  width: 10%;
+  width: 100%;
+  max-width: 170px;
   margin-top: 20px;
   background-color: #111;
   border-top: lightsteelblue solid 2px;
