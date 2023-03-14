@@ -1,0 +1,145 @@
+.user-list-div {
+  height: 100vh;
+  padding: 1em 3em;
+  background-color: #111;
+}
+
+.cont-user-list {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.header-p {
+  color: hotpink;
+  font-weight: 700;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.lista-de-usuarios {
+  display: flex;
+  border: solid 1px black;
+  border-top: none;
+  margin-bottom: 0px;
+  background-color: #333;
+}
+
+.div-list-user {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-list-user-img {
+  width: 33px;
+  height: 33px;
+  margin: 5px 0px;
+  border-radius: 20px;
+}
+
+.name-div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: solid 1px black;
+  border-left: solid 1px black;
+}
+
+.name-div-p {
+  font-size: 15px;
+  color: lightsteelblue;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+    1px -1px 1px #000;
+}
+
+.name-div-p::first-letter {
+  text-transform: uppercase;
+}
+
+.delete-div {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-delete-user {
+  border: none;
+  background-color: transparent;
+}
+
+/*{ICONOS}*/
+
+.icon-delete-user {
+  color: white;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.icon-delete-user:hover {
+  color: crimson;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+.icon-user {
+  color: hotpink;
+  margin-right: 3px;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+/*{TOOLTIP}*/
+
+.tooltip-userlist {
+  position: relative;
+}
+
+.tooltip-userlist:before {
+  content: attr(mensaje);
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: max-content;
+  max-width: 160px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 10;
+  opacity: 0;
+}
+
+.tooltip-userlist:hover::before {
+  opacity: 1;
+}

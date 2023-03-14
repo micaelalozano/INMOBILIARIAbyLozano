@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router";
 import NavbarDos from "../components/NavbarDos";
 import AdminNavbar from "../components/AdminNavbar";
 //Estilos
@@ -8,6 +9,7 @@ import "../estilos/formEditarProp.css";
 
 const FormEditarProps = () => {
   const { prop_id } = useParams();
+  const navigate = useNavigate();
   const [propiedades, setPropiedades] = useState({});
   const [disponibilidad, setDisponibilidad] = useState("");
   const [direccion, setDireccion] = useState("");
@@ -35,7 +37,7 @@ const FormEditarProps = () => {
       )
       .then((res) => res.data)
       .then((data) => {
-        //navigate("/mis_favoritos");
+        navigate("/panel_administrador=editar");
       })
       .catch((err) => {
         window.alert("ERROR");
@@ -53,6 +55,7 @@ const FormEditarProps = () => {
         <form className="form-class" action="post" onSubmit={handleSubmit}>
           <label className="label-edit">Disponibilidad</label>
           <input
+            required
             autoFocus
             id="input-edit"
             type="text"
@@ -63,6 +66,7 @@ const FormEditarProps = () => {
 
           <label className="label-edit">Ubicación</label>
           <input
+            required
             id="input-edit"
             type="text"
             onChange={(e) => setUbicacion(e.target.value)}
@@ -72,6 +76,7 @@ const FormEditarProps = () => {
 
           <label className="label-edit">Dirección</label>
           <input
+            required
             id="input-edit"
             type="text"
             onChange={(e) => setDireccion(e.target.value)}
@@ -81,6 +86,7 @@ const FormEditarProps = () => {
 
           <label className="label-edit">Precio</label>
           <input
+            required
             id="input-edit"
             type="text"
             onChange={(e) => setPrecio(e.target.value)}
@@ -90,15 +96,17 @@ const FormEditarProps = () => {
 
           <label className="label-edit">Imagen</label>
           <input
+            required
             id="input-edit"
             type="text"
             onChange={(e) => setImagen(e.target.value)}
             value={imagen}
-            placeholder="actual"
+            placeholder="Actual"
           />
 
           <label className="label-edit">Descripción</label>
           <textarea
+            required
             id="input-edit"
             type="text"
             onChange={(e) => setDescripcion(e.target.value)}
