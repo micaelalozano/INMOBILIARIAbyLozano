@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Spinner } from "../components/Spinner";
 import NavbarDos from "../components/NavbarDos";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -12,6 +13,7 @@ import "../estilos/favoritos.css";
 const Favoritos = () => {
   const [user, setUser] = useState({});
   const [log, setLog] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -30,10 +32,15 @@ const Favoritos = () => {
       .then((res) => res.data)
       .then((user) => {
         setLog(user);
+        setIsLoading(false);
       });
   }, [user.username]);
 
   console.log("usr data", log);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>
@@ -44,9 +51,26 @@ const Favoritos = () => {
             {log.map(function (e, i) {
               return (
                 <>
-                  <img className="portada-img" src={e.imagen} alt="" />
+                  <img
+                    className="portada-img"
+                    src={
+                      e.imagen
+                        ? e.imagen
+                        : "https://i.pinimg.com/170x/5f/03/10/5f0310152c8429dfbc441e99d5a8e33e.jpg"
+                    }
+                    alt="pic"
+                  />
                   <div className="div-perfil-img">
-                    <img className="perfil-img" src={e.imagen} alt="" />
+                    <img
+                      className="perfil-img"
+                      src={
+                        e.imagen
+                          ? e.imagen
+                          : "https://i.pinimg.com/170x/5f/03/10/5f0310152c8429dfbc441e99d5a8e33e.jpg"
+                      }
+                      alt="pic"
+                    />
+
                     <p className="username"> {e.username} </p>
                   </div>
                 </>
@@ -59,7 +83,8 @@ const Favoritos = () => {
                 className="cuenta-logo"
                 sx={{ fontSize: 20 }}
               />
-              {user.name} {user.lastname}{" "}
+              {user.name}{" "}
+              {user.lastname[0].toUpperCase() + user.lastname.substring(1)}
             </p>
             {log.map(function (e, i) {
               return (

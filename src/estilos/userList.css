@@ -115,6 +115,19 @@
   direction: ltr;
 }
 
+.icon-manage-user {
+  color: plum;
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
 /*{TOOLTIP}*/
 
 .tooltip-userlist {

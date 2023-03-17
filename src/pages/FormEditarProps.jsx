@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
+import { Spinner } from "../components/Spinner";
 import NavbarDos from "../components/NavbarDos";
 import AdminNavbar from "../components/AdminNavbar";
 //Estilos
@@ -17,6 +18,7 @@ const FormEditarProps = () => {
   const [precio, setPrecio] = useState("");
   const [ubicacion, setUbicacion] = useState("");
   const [imagen, setImagen] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -24,6 +26,7 @@ const FormEditarProps = () => {
       .then((res) => res.data)
       .then((data) => {
         setPropiedades(data);
+        setIsLoading(false);
       });
   }, [prop_id]);
 
@@ -43,6 +46,10 @@ const FormEditarProps = () => {
         window.alert("ERROR");
       });
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import { Spinner } from "../components/Spinner";
 import axios from "axios";
 import NavbarDos from "../components/NavbarDos";
 import AdminNavbar from "../components/AdminNavbar";
@@ -11,6 +12,7 @@ const EditarProp = () => {
   const navigate = useNavigate();
   const [propiedades, setPropiedades] = useState([]);
   const [deletePropiedades, setDeletePropiedades] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -18,6 +20,7 @@ const EditarProp = () => {
       .then((res) => res.data)
       .then((propiedades) => {
         setPropiedades(propiedades.content);
+        setIsLoading(false);
       })
       .catch();
   }, []);
@@ -32,6 +35,10 @@ const EditarProp = () => {
       });
   };
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <>
       <NavbarDos />
@@ -43,10 +50,7 @@ const EditarProp = () => {
               <li key={i}>
                 <div className="edit-contenedor">
                   <div className="btn-contenedor">
-                    <span
-                      className="tooltip-admin"
-                      mensaje="Editar propiedades"
-                    >
+                    <span className="tooltip-admin" mensaje="Editar propiedad">
                       <Link to={"/editar-propiedad/" + e.id}>
                         <button className="btn-edit-delete">
                           <span className="icon-edit">edit</span>
@@ -56,7 +60,7 @@ const EditarProp = () => {
 
                     <span
                       className="tooltip-admin-dos"
-                      mensaje="Eliminar propiedades"
+                      mensaje="Eliminar propiedad"
                     >
                       <Link to="/">
                         <button

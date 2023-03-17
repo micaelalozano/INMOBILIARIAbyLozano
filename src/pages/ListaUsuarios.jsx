@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Spinner } from "../components/Spinner";
 import axios from "axios";
 import NavbarDos from "../components/NavbarDos";
 import AdminNavbar from "../components/AdminNavbar";
@@ -8,6 +9,7 @@ import "../estilos/userList.css";
 const ListaUsuarios = () => {
   const [user, setUser] = useState({});
   const [listaUsuarios, setListaUsuarios] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -24,10 +26,13 @@ const ListaUsuarios = () => {
       .then((res) => res.data)
       .then((listaUsuarios) => {
         setListaUsuarios(listaUsuarios);
+        setIsLoading(false);
       });
   }, []);
 
-  console.log(listaUsuarios);
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>
@@ -55,13 +60,31 @@ const ListaUsuarios = () => {
                       {e.lastname[0].toUpperCase() + e.lastname.substring(1)}
                     </p>
                   </div>
-                  <div className="delete-div">
-                    <span className="tooltip-userlist" mensaje="Eliminar usuario">
-                      <button className="btn-delete-user">
-                        <span className="icon-delete-user">delete</span>
-                      </button>
-                    </span>
-                  </div>
+                  {e.username === "soymicaela" ? (
+                    <div className="delete-div">
+                      <span
+                        className="tooltip-userlist"
+                        mensaje="Usuario administrador"
+                      >
+                        <button className="btn-delete-user">
+                          <span className="icon-manage-user">
+                            manage_accounts
+                          </span>
+                        </button>
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="delete-div">
+                      <span
+                        className="tooltip-userlist"
+                        mensaje="Eliminar usuario"
+                      >
+                        <button className="btn-delete-user">
+                          <span className="icon-delete-user">delete</span>
+                        </button>
+                      </span>
+                    </div>
+                  )}
                 </div>
               );
             })}
