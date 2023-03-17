@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { Spinner } from "../components/Spinner";
 import axios from "axios";
 import NavbarDos from "../components/NavbarDos";
 import AdminNavbar from "../components/AdminNavbar";
@@ -16,6 +17,7 @@ const CrearProp = () => {
   const [precio, setPrecio] = useState("");
   const [ubicacion, setUbicacion] = useState("");
   const [imagen, setImagen] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -23,6 +25,7 @@ const CrearProp = () => {
       .then((res) => res.data)
       .then((user) => {
         setUser(user);
+        setIsLoading(false);
       });
   }, []);
 
@@ -43,6 +46,10 @@ const CrearProp = () => {
         navigate("/panel_administrador=editar");
       });
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>

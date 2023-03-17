@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Spinner } from "../components/Spinner";
 import NavbarDos from "../components/NavbarDos";
 //import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -12,6 +13,7 @@ const Propiedades = () => {
   const [propiedades, setPropiedades] = useState([]);
   const [page, setPage] = useState(0);
   const [numberOfPages, setNumberOfPages] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleChange = (e, page) => {
     setPage(page);
@@ -25,9 +27,15 @@ const Propiedades = () => {
       .then((propiedades) => {
         setPropiedades(propiedades.content);
         setNumberOfPages(propiedades.content?.total_pages);
+        setIsLoading(false);
       })
       .catch();
   }, [page]);
+
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   console.log("estas son las", propiedades);
 
