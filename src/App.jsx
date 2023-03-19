@@ -10,7 +10,6 @@ import Alquiler from "./pages/Alquiler";
 import Favoritos from "./pages/Favoritos";
 import CambiarPerfil from "./components/CambiarPerfil";
 import Detalles from "./pages/Detalles";
-import Visitas from "./pages/Visitas";
 import EditarProp from "./pages/EditarProp";
 import ListaUsuarios from "./pages/ListaUsuarios";
 import CrearProp from "./pages/CrearProp";
@@ -42,7 +41,6 @@ const App = () => {
         <Route path="/propiedades=en_venta" element={<Venta />} />
         <Route path="/propiedades=en_alquiler" element={<Alquiler />} />
         <Route path="/propiedades=ver-mas/:prop_id" element={<Detalles />} />
-        <Route path="/agendar_visita/:prop_id" element={<Visitas />} />
         <Route path="/panel_administrador=editar" element={<EditarProp />} />
         <Route path="/panel_administrador=crear" element={<CrearProp />} />
         <Route path="/panel_administrador=ver-usuarios" element={<ListaUsuarios />} />

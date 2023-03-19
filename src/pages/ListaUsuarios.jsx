@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { Spinner } from "../components/Spinner";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import NavbarDos from "../components/NavbarDos";
 import AdminNavbar from "../components/AdminNavbar";
@@ -7,9 +9,11 @@ import AdminNavbar from "../components/AdminNavbar";
 import "../estilos/userList.css";
 
 const ListaUsuarios = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [listaUsuarios, setListaUsuarios] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [deleteUsuarios, setDeleteUsuarios] = useState([]);
 
   useEffect(() => {
     axios
@@ -29,6 +33,17 @@ const ListaUsuarios = () => {
         setIsLoading(false);
       });
   }, []);
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`/api/users/${id}`)
+      .then((res) => res.data)
+      .then((user) => {
+        setDeleteUsuarios(user);
+        setIsLoading(false);
+        navigate("/panel_administrador=ver-usuarios");
+      });
+  };
 
   if (isLoading) {
     return <Spinner />;
@@ -52,7 +67,15 @@ const ListaUsuarios = () => {
               return (
                 <div className="lista-de-usuarios">
                   <div className="div-list-user">
-                    <img className="div-list-user-img" src={e.imagen} alt="" />
+                    <img
+                      className="div-list-user-img"
+                      src={
+                        e.imagen
+                          ? e.imagen
+                          : "https://i.pinimg.com/170x/5f/03/10/5f0310152c8429dfbc441e99d5a8e33e.jpg"
+                      }
+                      alt=""
+                    />
                   </div>
                   <div className="name-div">
                     <p className="name-div-p">
@@ -79,9 +102,14 @@ const ListaUsuarios = () => {
                         className="tooltip-userlist"
                         mensaje="Eliminar usuario"
                       >
-                        <button className="btn-delete-user">
-                          <span className="icon-delete-user">delete</span>
-                        </button>
+                        <Link to="/">
+                          <button
+                            className="btn-delete-user"
+                            onClick={() => handleDelete(e.id)}
+                          >
+                            <span className="icon-delete-user">delete</span>
+                          </button>
+                        </Link>
                       </span>
                     </div>
                   )}
