@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useParams } from "react-router";
 import { Spinner } from "../components/Spinner";
-import axios from "axios";
+import { useNavigate } from "react-router";
 //import { Link } from "react-router-dom";
 import NavbarDos from "../components/NavbarDos";
 import Modal from "@mui/material/Modal";
@@ -10,8 +11,16 @@ import "../estilos/detalles.css";
 
 const Detalles = () => {
   const { prop_id } = useParams();
+  const navigate = useNavigate();
   const [propiedades, setPropiedades] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  //NodeMailer
+  const [propiedad, setPropiedad] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [email, setEmail] = useState("");
+  const [fecha, setFecha] = useState("");
+  const [horario, setHorario] = useState("");
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -31,10 +40,24 @@ const Detalles = () => {
       });
   }, [prop_id]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "/api/visitas",
+        { propiedad, nombre, apellido, email, fecha, horario },
+        { withCredentials: true }
+      )
+      .then((res) => res.data)
+      .then(() => {
+        navigate("/");
+      });
+  };
+
   if (isLoading) {
     return <Spinner />;
   }
-  
+
   return (
     <>
       <NavbarDos />
@@ -77,12 +100,17 @@ const Detalles = () => {
               aria-describedby="modal-modal-description"
             >
               <div className="modal-contenedor">
-                <form action="post" className="form-modal">
+                <form
+                  onSubmit={handleSubmit}
+                  action="post"
+                  className="form-modal"
+                >
                   <label className="label-visita">Propiedad</label>
                   <input
                     required
                     type="text"
-                    value={propiedades.direccion + "," + propiedades.ubicacion}
+                    onChange={(e) => setPropiedad(e.target.value)}
+                    value={propiedad}
                     className="input-visita"
                   />
                   <label className="label-visita">Nombre</label>
@@ -91,11 +119,25 @@ const Detalles = () => {
                     autoFocus
                     type="text"
                     className="input-visita"
+                    onChange={(e) => setNombre(e.target.value)}
+                    value={nombre}
                   />
                   <label className="label-visita">Apellido</label>
-                  <input required type="text" className="input-visita" />
+                  <input
+                    required
+                    type="text"
+                    className="input-visita"
+                    onChange={(e) => setApellido(e.target.value)}
+                    value={apellido}
+                  />
                   <label className="label-visita">E-mail</label>
-                  <input required type="mail" className="input-visita" />
+                  <input
+                    required
+                    type="mail"
+                    className="input-visita"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                  />
                   <label className="label-visita">Fecha</label>
                   <input
                     required
@@ -103,6 +145,8 @@ const Detalles = () => {
                     min="2023-03-15"
                     max="2023-04-30"
                     className="input-visita"
+                    onChange={(e) => setFecha(e.target.value)}
+                    value={fecha}
                   />
                   <label className="label-visita">Horario</label>
                   <input
@@ -111,6 +155,8 @@ const Detalles = () => {
                     min="12:00"
                     max="18:00"
                     className="input-visita"
+                    onChange={(e) => setHorario(e.target.value)}
+                    value={horario}
                   />
                   <div className="reserva-div">
                     <button className="reservar-btn">ACEPTAR</button>
