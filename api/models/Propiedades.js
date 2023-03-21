@@ -18,7 +18,7 @@ Propiedades.init(
       allowNull: false,
     },
     precio: {
-      type: Sequelize.DataTypes.INTEGER, //biginit
+      type: Sequelize.DataTypes.INTEGER, 
       allowNull: false,
     },
     ubicacion: {

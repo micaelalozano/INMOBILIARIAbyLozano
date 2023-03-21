@@ -109,14 +109,13 @@ const Detalles = () => {
                   <input
                     required
                     type="text"
+                    className="input-visita"
                     onChange={(e) => setPropiedad(e.target.value)}
                     value={propiedad}
-                    className="input-visita"
                   />
                   <label className="label-visita">Nombre</label>
                   <input
                     required
-                    autoFocus
                     type="text"
                     className="input-visita"
                     onChange={(e) => setNombre(e.target.value)}
