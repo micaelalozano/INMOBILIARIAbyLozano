@@ -5,33 +5,70 @@ import { Spinner } from "../components/Spinner";
 import NavbarDos from "../components/NavbarDos";
 //import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Pagination from "@mui/material/Pagination";
 //Estilos
 import "../estilos/propiedades.css";
 
 const Propiedades = () => {
   const [propiedades, setPropiedades] = useState([]);
-  const [page, setPage] = useState(0);
-  const [numberOfPages, setNumberOfPages] = useState(0);
+  const [isFavorito, setIsFavorito] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const handleChange = (e, page) => {
-    setPage(page);
-    //window.scroll(0, 0);
-  };
+  const [log, setLog] = useState({});
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`/api/propiedades?page=${page}`)
+      .get("/api/users/ruta/perfil")
+      .then((res) => res.data)
+      .then((user) => {
+        setLog(user);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`/api/users/${log.username}`)
+      .then((res) => res.data)
+      .then((user) => {
+        setUser(user);
+      });
+  }, [log.username]);
+
+  console.log("user es ", user);
+
+  useEffect(() => {
+    axios
+      .get(`/api/propiedades`)
       .then((res) => res.data)
       .then((propiedades) => {
-        setPropiedades(propiedades.content);
-        setNumberOfPages(propiedades.content?.total_pages);
+        setPropiedades(propiedades);
         setIsLoading(false);
       })
       .catch();
-  }, [page]);
+  }, []);
 
+  //Agregar a favoritos:
+  const addFav = (propId) => {
+    if (!log.username) {
+      window.alert("Necesitas loguearte");
+      return;
+    }
+    axios
+      .post("/api/favoritos", {
+        propiedadId: propId,
+        userId: user[0].id,
+      })
+      .then(() => {
+        window.alert("Agregado a Favs!");
+        return axios.get(`/api/favoritos/${user[0].id}`);
+      })
+      .then((res) => res.data)
+      .then((data) => setIsFavorito(data))
+      .catch(() => alert("Se ha producido un error"));
+
+    const existeArticulo = isFavorito.some(function (e) {
+      return isFavorito.id !== propId;
+    });
+  };
 
   if (isLoading) {
     return <Spinner />;
@@ -48,7 +85,7 @@ const Propiedades = () => {
             return (
               <li key={i}>
                 <div className="card-item">
-                  <p className="p1">
+                  <p className="p1" onClick={() => addFav(e.id)}>
                     <FavoriteBorderIcon sx={{ fontSize: 20 }} />
                   </p>
                   <div className="card-bot">
@@ -66,21 +103,6 @@ const Propiedades = () => {
           })}
         </div>
       </ul>
-      <Pagination
-        count={numberOfPages}
-        siblingCount={0}
-        boundaryCount={2}
-        defaultPage={0}
-        page={page}
-        sx={{ button: { color: "#4d4a4a" } }}
-        color="primary"
-        onChange={handleChange}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginBottom: "2em",
-        }}
-      />
     </>
   );
 };
