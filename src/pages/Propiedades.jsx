@@ -59,7 +59,7 @@ const Propiedades = () => {
       })
       .then(() => {
         window.alert("Agregado a Favs!");
-        return axios.get(`/api/favoritos/${user[0].id}`);
+        return axios.get(`/api/favoritos/${log.username}`);
       })
       .then((res) => res.data)
       .then((data) => setIsFavorito(data))
