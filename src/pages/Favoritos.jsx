@@ -7,6 +7,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import MailIcon from "@mui/icons-material/Mail";
+import FavsList from "../components/FavsList";
 //Estilos
 import "../estilos/favoritos.css";
 
@@ -119,6 +120,7 @@ const Favoritos = () => {
               );
             })}
           </div>
+          <FavsList />
         </>
       ) : (
         <>
