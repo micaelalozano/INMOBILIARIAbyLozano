@@ -29,7 +29,7 @@
 .p1 {
   display: flex;
   font-size: 5px;
-  margin:  2em;
+  margin: 2em;
   padding: 1em;
   border-radius: 100px;
   width: fit-content;
@@ -47,7 +47,7 @@
   bottom: 0;
 }
 
-.direccion{
+.direccion {
   display: flex;
   align-items: center;
   padding: 1px 5px;
@@ -59,7 +59,7 @@
   border-radius: 5px;
 }
 
-.btn-mas{
+.btn-mas {
   padding: 1px 5px;
   background-color: white;
   color: #222;
@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 
-.btn-mas:hover{
+.btn-mas:hover {
   padding: 1px 5px;
   background-color: rgba(255, 255, 255, 0.171);
   color: white;
@@ -87,7 +87,7 @@
     overflow: hidden;
   }
 
-  .direccion{
+  .direccion {
     padding: 1px 5px;
     background-color: white;
     color: #222;
@@ -96,8 +96,8 @@
     border: white solid 2px;
     border-radius: 5px;
   }
-  
-  .btn-mas{
+
+  .btn-mas {
     padding: 1px 5px;
     background-color: white;
     color: #222;
@@ -134,7 +134,3 @@
     overflow: hidden;
   }
 }
-
-
-
-

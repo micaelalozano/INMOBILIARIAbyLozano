@@ -3,30 +3,21 @@ import axios from "axios";
 import NavbarDos from "../components/NavbarDos";
 //import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import Pagination from "@mui/material/Pagination";
 //Estilos
 import "../estilos/propiedades.css";
 
 const Alquiler = () => {
   const [propiedades, setPropiedades] = useState([]);
-  const [page, setPage] = useState(0);
-  const [numberOfPages, setNumberOfPages] = useState(0);
-
-  const handleChange = (e, page) => {
-    setPage(page);
-    //window.scroll(0, 0);
-  };
 
   useEffect(() => {
     axios
-      .get(`/api/propiedades?page=${page}`)
+      .get(`/api/propiedades`)
       .then((res) => res.data)
       .then((propiedades) => {
-        setPropiedades(propiedades.content);
-        setNumberOfPages(propiedades.content?.total_pages);
+        setPropiedades(propiedades);
       })
       .catch();
-  }, [page]);
+  }, []);
 
 
   //Filtrar clase de producto:
@@ -65,21 +56,6 @@ const Alquiler = () => {
           })}
         </div>
       </ul>
-      <Pagination
-          count={numberOfPages}
-          siblingCount={0}
-          boundaryCount={2}
-          defaultPage={0}
-          page={page}
-          sx={{ button: { color: "#4d4a4a" } }}
-          color="primary"
-          onChange={handleChange}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: "2em",
-          }}
-        />
     </>
   );
 };

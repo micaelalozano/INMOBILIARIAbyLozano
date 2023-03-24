@@ -14,6 +14,8 @@ const Propiedades = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [log, setLog] = useState({});
   const [user, setUser] = useState([]);
+  const [deleteFavs, setDeleteFavs] = useState([]);
+  const [misFavoritos, setMisFavoritos] = useState([]);
 
   useEffect(() => {
     axios
@@ -70,10 +72,34 @@ const Propiedades = () => {
     });
   };
 
+  //
+
+  useEffect(() => {
+    axios
+      .get(`/api/favoritos/${log.username}`)
+      .then((res) => res.data)
+      .then((favs) => {
+        setMisFavoritos(favs);
+      });
+  }, [log.username]);
+
+  //Eliminar de favoritos
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`/api/users/${id}`)
+      .then((res) => res.data)
+      .then((fav) => {
+        setDeleteFavs(fav);
+        setIsLoading(false);
+      });
+  };
+
   if (isLoading) {
     return <Spinner />;
   }
 
+  console.log("esis sn mis favs", misFavoritos);
   console.log("estas son las", propiedades);
 
   return (
