@@ -109,7 +109,7 @@ const Favoritos = () => {
                     </span>
                   </li>
                   <li>
-                    <span className="tooltip-perfil" mensaje="0 favoritos">
+                    <span className="tooltip-perfil" mensaje="3 favoritos">
                       <FavoriteIcon
                         className="icons-color"
                         sx={{ fontSize: 21 }}

@@ -24,11 +24,10 @@ const Venta = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/propiedades?page=${page}`)
+      .get(`/api/propiedades`)
       .then((res) => res.data)
       .then((propiedades) => {
-        setPropiedades(propiedades.content);
-        setNumberOfPages(propiedades.content?.total_pages);
+        setPropiedades(propiedades);
       })
       .catch();
   }, [page]);
