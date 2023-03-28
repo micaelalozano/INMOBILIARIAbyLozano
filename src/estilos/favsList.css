@@ -57,6 +57,47 @@
   align-items: center;
   border: none;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.fav-ver-mas{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  bottom: 0;
+  width: 100%;
+  border-radius: 5px;
+  padding: 15px 10px;
+}
+
+/*{TOOLTIP}*/
+
+.tooltip-remove {
+  position: relative;
+}
+
+.tooltip-remove:before {
+  content: attr(mensaje);
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: max-content;
+  max-width: 160px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 10;
+  opacity: 0;
+}
+
+.tooltip-remove:hover::before {
+  opacity: 1;
 }
 
 @media screen and (max-width: 1240px) {

@@ -16,10 +16,10 @@ const EditarProp = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/propiedades?page=${0}`)
+      .get(`/api/propiedades`)
       .then((res) => res.data)
       .then((propiedades) => {
-        setPropiedades(propiedades.content);
+        setPropiedades(propiedades);
         setIsLoading(false);
       })
       .catch();

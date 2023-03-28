@@ -1,5 +1,5 @@
 const express = require("express");
-const { Favoritos, Users, Propiedades } = require("../models");
+const { Users, Propiedades } = require("../models");
 const router = express.Router();
 
 router.post("/", (req, res) => {
@@ -33,14 +33,14 @@ router.get("/:username", (req, res) => {
 });
 
 //Eliminar favs:
-router.delete("/:id", (req, res) => {
+router.delete("/remove",(req, res) => {
   const { propiedadId, userId } = req.body;
 
   Propiedades.findOne({
     where: { id: propiedadId },
     include: { model: Users, where: { id: userId } },
   }).then((data) => {
-    console.log(data);
+    //console.log(data);
     if (data) {
       {
         Users.findByPk(userId).then((user) => {

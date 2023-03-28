@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 //Estilos
 import "../estilos/favsList.css";
 
 const FavsList = () => {
   const [misFavoritos, setMisFavoritos] = useState([]);
+  const [deleteFavs, setDeleteFavs] = useState([]);
   const [user, setUser] = useState({});
   const [log, setLog] = useState([]);
 
@@ -36,7 +38,22 @@ const FavsList = () => {
       });
   }, [user.username]);
 
-  console.log(log);
+  console.log("favs aqui", misFavoritos);
+
+  //Eliminar de favoritos
+
+  const favDelete = (id) => {
+    axios
+      .delete(`/api/favoritos/remove`, {
+        propiedadId: 10,
+        userId: log[0].id,
+      })
+      .then((res) => res.data)
+      .then((data) => {
+        console.log("data here",data);
+        setDeleteFavs(data);
+      });
+  };
 
   return (
     <>
@@ -51,12 +68,22 @@ const FavsList = () => {
                       <img className="mini-icon" src={log[0].imagen} alt="" />
                       <p className="name-style"> {log[0].name} </p>
                     </div>
-                    <button className="unheart">
-                      <HeartBrokenIcon
-                        sx={{ fontSize: 30 }}
-                        style={{ color: "#ff69b4" }}
-                      />
+                    <button className="unheart" onClick={() => favDelete(e.id)}>
+                      <span
+                        className="tooltip-remove"
+                        mensaje="Eliminar de favoritos"
+                      >
+                        <HeartBrokenIcon
+                          sx={{ fontSize: 28 }}
+                          style={{ color: "#ff69b4" }}
+                        />
+                      </span>
                     </button>
+                  </div>
+                  <div className="fav-ver-mas">
+                    <Link to={"/propiedades=ver-mas/" + e.id}>
+                      <button className="btn-mas">Ver más</button>
+                    </Link>
                   </div>
                   <img className="img-fav" src={e.imagen} alt="" />
                 </div>
