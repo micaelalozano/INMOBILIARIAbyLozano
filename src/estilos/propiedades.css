@@ -12,12 +12,15 @@
   width: 100%;
   height: 100%;
   border: solid rgba(17, 17, 17, 0.644) 1px;
+  border-radius: 5px;
   position: relative;
 }
 
 .img-prop {
   width: 100%;
   height: 100%;
+  border-radius: 5px;
+
 }
 
 .card-content {
@@ -28,6 +31,7 @@
 
 .p1 {
   display: flex;
+  align-items: center;
   font-size: 5px;
   margin: 2em;
   padding: 1em;
@@ -78,6 +82,35 @@
   font-size: 13px;
   border: white solid 2px;
   border-radius: 5px;
+}
+
+/*{TOOLTIP}*/
+
+.tooltip-mis-favs {
+  position: relative;
+}
+
+.tooltip-mis-favs:before {
+  content: attr(mensaje);
+  position: absolute;
+  top: 170%;
+  left: 0;
+  width: max-content;
+  max-width: 160px;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 10;
+  opacity: 0;
+}
+
+.tooltip-mis-favs:hover::before {
+  opacity: 1;
 }
 
 @media screen and (max-width: 440px) {

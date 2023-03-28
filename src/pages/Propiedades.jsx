@@ -3,8 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Spinner } from "../components/Spinner";
 import NavbarDos from "../components/NavbarDos";
-//import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 //Estilos
 import "../estilos/propiedades.css";
 
@@ -14,7 +13,6 @@ const Propiedades = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [log, setLog] = useState({});
   const [user, setUser] = useState([]);
-  const [deleteFavs, setDeleteFavs] = useState([]);
   const [misFavoritos, setMisFavoritos] = useState([]);
 
   useEffect(() => {
@@ -60,16 +58,12 @@ const Propiedades = () => {
         userId: user[0].id,
       })
       .then(() => {
-        window.alert("Agregado a Favs!");
+        window.alert("favs exito");
         return axios.get(`/api/favoritos/${log.username}`);
       })
       .then((res) => res.data)
       .then((data) => setIsFavorito(data))
       .catch(() => alert("Se ha producido un error"));
-
-    const existeArticulo = isFavorito.some(function (e) {
-      return isFavorito.id !== propId;
-    });
   };
 
   //
@@ -82,18 +76,6 @@ const Propiedades = () => {
         setMisFavoritos(favs);
       });
   }, [log.username]);
-
-  //Eliminar de favoritos
-
-  const handleDelete = (id) => {
-    axios
-      .delete(`/api/users/${id}`)
-      .then((res) => res.data)
-      .then((fav) => {
-        setDeleteFavs(fav);
-        setIsLoading(false);
-      });
-  };
 
   if (isLoading) {
     return <Spinner />;
@@ -112,8 +94,17 @@ const Propiedades = () => {
               <li key={i}>
                 <div className="card-item">
                   <p className="p1" onClick={() => addFav(e.id)}>
-                    <FavoriteBorderIcon sx={{ fontSize: 20 }} />
+                    <span
+                      className="tooltip-mis-favs"
+                      mensaje="Agregar a favoritos"
+                    >
+                      <FavoriteIcon
+                        sx={{ fontSize: 20 }}
+                        style={{ color: "#ff69b4" }}
+                      />
+                    </span>
                   </p>
+
                   <div className="card-bot">
                     <div className="direccion">
                       {e.ubicacion},{e.direccion}

@@ -1,6 +1,6 @@
 //Para poder hacer el login con Auth
 const jwt = require("jsonwebtoken");
-const SECRET = "JOKER";
+const SECRET = "JOKERS";
 
 const generateToken = (payload) => {
   const token = jwt.sign({ user: payload }, SECRET, { expiresIn: "2d" });
