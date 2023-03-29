@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
+import { useNavigate } from "react-router";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 //Estilos
 import "../estilos/favsList.css";
 
 const FavsList = () => {
+  const navigate = useNavigate();
   const [misFavoritos, setMisFavoritos] = useState([]);
   const [deleteFavs, setDeleteFavs] = useState([]);
   const [user, setUser] = useState({});
@@ -41,17 +43,13 @@ const FavsList = () => {
   console.log("favs aqui", misFavoritos);
 
   //Eliminar de favoritos
-
-  const favDelete = (id) => {
+  const favDelete = (propId) => {
     axios
-      .delete(`/api/favoritos/remove`, {
-        propiedadId: 10,
-        userId: log[0].id,
-      })
+      .delete(`/api/favoritos/${propId}/${log[0].id}`)
       .then((res) => res.data)
       .then((data) => {
-        console.log("data here",data);
         setDeleteFavs(data);
+        navigate("/mis_favoritos");
       });
   };
 
@@ -68,15 +66,18 @@ const FavsList = () => {
                       <img className="mini-icon" src={log[0].imagen} alt="" />
                       <p className="name-style"> {log[0].name} </p>
                     </div>
-                    <button className="unheart" onClick={() => favDelete(e.id)}>
+                    <button className="unheart">
                       <span
                         className="tooltip-remove"
                         mensaje="Eliminar de favoritos"
                       >
-                        <HeartBrokenIcon
-                          sx={{ fontSize: 28 }}
-                          style={{ color: "#ff69b4" }}
-                        />
+                        <Link to="/">
+                          <FavoriteIcon
+                            sx={{ fontSize: 26 }}
+                            style={{ color: "#ff69b4" }}
+                            onClick={() => favDelete(e.id)}
+                          />
+                        </Link>
                       </span>
                     </button>
                   </div>
