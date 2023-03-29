@@ -141,7 +141,7 @@
 .tooltip-2:before {
   content: attr(mensaje);
   position: absolute;
-  top: 250%;
+  top: 240%;
   right: 0;
   width: max-content;
   max-width: 160px;

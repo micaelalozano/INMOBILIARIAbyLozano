@@ -33,19 +33,19 @@ router.get("/:username", (req, res) => {
 });
 
 //Eliminar favs:
-router.delete("/remove",(req, res) => {
-  const { propiedadId, userId } = req.body;
+router.delete("/:propiedadId/:userId", (req, res) => {
+  //const { propiedadId, userId } = req.params;
 
   Propiedades.findOne({
-    where: { id: propiedadId },
-    include: { model: Users, where: { id: userId } },
+    where: { id: req.params.propiedadId },
+    include: { model: Users, where: { id: req.params.userId } },
   }).then((data) => {
-    //console.log(data);
+    console.log("dara", data);
     if (data) {
       {
-        Users.findByPk(userId).then((user) => {
+        Users.findByPk(req.params.userId).then((user) => {
           //console.log(user);
-          Propiedades.findByPk(propiedadId).then((propiedad) => {
+          Propiedades.findByPk(req.params.propiedadId).then((propiedad) => {
             user.removePropiedades(propiedad);
             res.status(201).send(propiedad);
           });
