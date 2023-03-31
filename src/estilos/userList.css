@@ -1,6 +1,6 @@
 .user-list-div {
   height: 100vh;
-  padding: 1em 3em;
+  padding: 2em 3em;
   background-color: #111;
 }
 
@@ -155,4 +155,34 @@
 
 .tooltip-userlist:hover::before {
   opacity: 1;
+}
+
+/*{INPUT BUSCADOR}*/
+
+#search-form-user {
+  margin-bottom: 1em;
+}
+
+#search-text-user {
+  padding: 2px 1px;
+  outline: none;
+  border: none;
+  border-bottom: solid 2px hotpink;
+  background-color: #111;
+  color: aliceblue;
+  width: 100%;
+  max-width: 230px;
+  font-size: 13.5px;
+}
+
+@media screen and (max-width: 740px) {
+  #search-text-user {
+    width: 100%;
+    max-width: 210px;
+    font-size: 13px;
+  }
+
+  .name-div-p {
+    font-size: 14px;
+  }
 }

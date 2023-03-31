@@ -18,6 +18,7 @@ const Propiedades = () => {
   const [user, setUser] = useState([]);
   const [misFavoritos, setMisFavoritos] = useState([]);
   const [deleteFavs, setDeleteFavs] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios
@@ -82,13 +83,27 @@ const Propiedades = () => {
   //Eliminar de favoritos
   const favDelete = (propId) => {
     axios
-      .delete(`/api/favoritos/${propId}/${user[0].id}`, )
+      .delete(`/api/favoritos/${propId}/${user[0].id}`)
       .then((res) => res.data)
       .then((data) => {
         setDeleteFavs(data);
         navigate("/propiedades=ver_todo");
       });
   };
+
+  //Funcion de busqueda:
+  const searcher = (e) => {
+    setSearch(e.target.value);
+    console.log(e.target.value);
+  };
+
+  //Metodo de filtrado:
+  const result = !search
+    ? propiedades
+    : propiedades.filter((data) =>
+        data.ubicacion.toLowerCase().includes(search.toLowerCase())
+      );
+
 
   if (isLoading) {
     return <Spinner />;
@@ -100,9 +115,18 @@ const Propiedades = () => {
   return (
     <>
       <NavbarDos />
+      <form id="search-form" target="_top">
+        <input
+          value={search}
+          onChange={searcher}
+          id="search-text"
+          placeholder="Filtrar por barrio"
+          type="text"
+        />
+      </form>{" "}
       <ul>
         <div className="card-list">
-          {propiedades.map(function (e, i) {
+          {result.map(function (e, i) {
             return (
               <li key={i}>
                 <div className="card-item">

@@ -124,7 +124,7 @@ const Favoritos = () => {
         </>
       ) : (
         <>
-          <p>log in</p>
+          <p>Necesitas iniciar sesion</p>
         </>
       )}
     </>
