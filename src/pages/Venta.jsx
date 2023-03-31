@@ -18,6 +18,7 @@ const Venta = () => {
   const [user, setUser] = useState([]);
   const [misFavoritos, setMisFavoritos] = useState([]);
   const [deleteFavs, setDeleteFavs] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios
@@ -109,6 +110,19 @@ const Venta = () => {
       });
   };
 
+  //Funcion de busqueda:
+  const searcher = (e) => {
+    setSearch(e.target.value);
+    console.log(e.target.value);
+  };
+
+  //Metodo de filtrado:
+  const result = !search
+    ? venta
+    : venta.filter((data) =>
+        data.ubicacion.toLowerCase().includes(search.toLowerCase())
+      );
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -118,9 +132,18 @@ const Venta = () => {
   return (
     <>
       <NavbarDos />
+      <form id="search-form" target="_top">
+        <input
+          value={search}
+          onChange={searcher}
+          id="search-text"
+          placeholder="Filtrar por barrio"
+          type="text"
+        />
+      </form>{" "}
       <ul>
         <div className="card-list">
-          {venta.map(function (e, i) {
+          {result.map(function (e, i) {
             return (
               <li key={i}>
                 <div className="card-item">
@@ -153,7 +176,9 @@ const Venta = () => {
                     <div className="direccion">
                       {e.ubicacion},{e.direccion}
                     </div>
-                    <button className="btn-mas">Ver más</button>
+                    <Link to={"/propiedades=ver-mas/" + e.id}>
+                      <button className="btn-mas">Ver más</button>
+                    </Link>
                   </div>
                   <img className="img-prop" src={e.imagen} alt="" />
                 </div>

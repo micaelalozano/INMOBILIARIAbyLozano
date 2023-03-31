@@ -63,7 +63,15 @@ const FavsList = () => {
                 <div className="fav-lis-contenedor">
                   <div className="favs-datos">
                     <div className="favs-dos">
-                      <img className="mini-icon" src={log[0].imagen} alt="" />
+                      <img
+                        className="mini-icon"
+                        src={
+                          log[0].imagen
+                            ? log[0].imagen
+                            : "https://i.pinimg.com/170x/5f/03/10/5f0310152c8429dfbc441e99d5a8e33e.jpg"
+                        }
+                        alt=""
+                      />
                       <p className="name-style"> {log[0].name} </p>
                     </div>
                     <button className="unheart">

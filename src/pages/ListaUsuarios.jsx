@@ -14,6 +14,7 @@ const ListaUsuarios = () => {
   const [listaUsuarios, setListaUsuarios] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [deleteUsuarios, setDeleteUsuarios] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     axios
@@ -45,6 +46,19 @@ const ListaUsuarios = () => {
       });
   };
 
+  //Funcion de busqueda:
+  const searcher = (e) => {
+    setSearch(e.target.value);
+    console.log(e.target.value);
+  };
+
+  //Metodo de filtrado:
+  const result = !search
+    ? listaUsuarios
+    : listaUsuarios.filter((data) =>
+        data.name.toLowerCase().includes(search.toLowerCase())
+      );
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -56,6 +70,15 @@ const ListaUsuarios = () => {
           <NavbarDos />
           <AdminNavbar />
           <div className="user-list-div">
+            <form id="search-form-user" target="_top">
+              <input
+                value={search}
+                onChange={searcher}
+                id="search-text-user"
+                placeholder="Buscar por nombre de usuario"
+                type="text"
+              />
+            </form>{" "}
             <div className="cont-user-list">
               <p className="header-p">
                 {" "}
@@ -63,7 +86,7 @@ const ListaUsuarios = () => {
                 Lista de usuarios registrados
               </p>
             </div>
-            {listaUsuarios.map(function (e, i) {
+            {result.map(function (e, i) {
               return (
                 <div className="lista-de-usuarios">
                   <div className="div-list-user">
@@ -120,7 +143,6 @@ const ListaUsuarios = () => {
         </>
       ) : (
         <>
-          {" "}
           <p>log in</p>
         </>
       )}

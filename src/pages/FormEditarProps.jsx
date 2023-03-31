@@ -62,7 +62,7 @@ const FormEditarProps = () => {
         <form className="form-class" action="post" onSubmit={handleSubmit}>
           <label className="label-edit">Disponibilidad</label>
           <input
-            required
+            //required
             autoFocus
             id="input-edit"
             type="text"
@@ -73,7 +73,7 @@ const FormEditarProps = () => {
 
           <label className="label-edit">Ubicación</label>
           <input
-            required
+            //required
             id="input-edit"
             type="text"
             onChange={(e) => setUbicacion(e.target.value)}
@@ -83,7 +83,7 @@ const FormEditarProps = () => {
 
           <label className="label-edit">Dirección</label>
           <input
-            required
+            //required
             id="input-edit"
             type="text"
             onChange={(e) => setDireccion(e.target.value)}
@@ -93,7 +93,7 @@ const FormEditarProps = () => {
 
           <label className="label-edit">Precio</label>
           <input
-            required
+            //required
             id="input-edit"
             type="text"
             onChange={(e) => setPrecio(e.target.value)}
@@ -103,7 +103,7 @@ const FormEditarProps = () => {
 
           <label className="label-edit">Imagen</label>
           <input
-            required
+            //required
             id="input-edit"
             type="text"
             onChange={(e) => setImagen(e.target.value)}
@@ -113,7 +113,7 @@ const FormEditarProps = () => {
 
           <label className="label-edit">Descripción</label>
           <textarea
-            required
+            //required
             id="input-edit"
             type="text"
             onChange={(e) => setDescripcion(e.target.value)}
