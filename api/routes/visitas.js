@@ -5,7 +5,7 @@ const router = express.Router();
 
 //Crear reserva:
 router.post("/", (req, res) => {
-  const { propiedad, nombre, apellido, email, fecha, horario } = req.body;
+  const { direccion, nombre, apellido, email, fecha, horario } = req.body;
   let testAccount = nodemailer.createTestAccount();
 
   const transporter = nodemailer.createTransport({
@@ -22,14 +22,14 @@ router.post("/", (req, res) => {
   });
 
   transporter.sendMail({
-    from: "`INMOBILIARIA`",
+    from: `"INMOBILIARIA"`,
     to: `${email}`,
     subject: "Confirmacion de cita",
-    text: `Hola ${nombre} ${apellido} enviamos este mail para confirmar tu cita para el dia ${fecha} a las ${horario} en la direccion ${propiedad}.`,
+    text: `Hola ${nombre} ${apellido} enviamos este mail para confirmar tu cita para el dia ${fecha} a las ${horario} en la direccion ${direccion}.`,
   });
 
   Visitas.create({
-    propiedad,
+    direccion,
     nombre,
     apellido,
     email,

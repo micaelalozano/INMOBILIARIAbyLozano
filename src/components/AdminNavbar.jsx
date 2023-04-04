@@ -29,6 +29,10 @@ const AdminNavbar = () => {
               <Link to="/panel_administrador=ver-usuarios">
                 <li>Ver usuarios</li>
               </Link>
+
+              <Link to="/panel_administrador=ver-visitas">
+                <li>Ver reservas</li>
+              </Link>
             </ul>
           </li>
         </ul>
