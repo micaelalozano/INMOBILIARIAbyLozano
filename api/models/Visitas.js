@@ -5,7 +5,7 @@ class Visitas extends Sequelize.Model {}
 
 Visitas.init(
   {
-    propiedad: {
+    direccion: {
       type: Sequelize.DataTypes.STRING,
       allowNull: false,
     },
@@ -30,7 +30,7 @@ Visitas.init(
       allowNull: false,
     },
   },
-  { sequelize: db, modelName: "visitas" }
+  { sequelize: db, modelName: "Visitas" }
 );
 
 module.exports = Visitas;

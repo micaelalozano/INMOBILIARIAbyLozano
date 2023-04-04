@@ -14,6 +14,8 @@ import EditarProp from "./pages/EditarProp";
 import ListaUsuarios from "./pages/ListaUsuarios";
 import CrearProp from "./pages/CrearProp";
 import FormEditarProps from "./pages/FormEditarProps";
+import MailExito from "./components/MailExito";
+import LIstaVisitas from "./pages/LIstaVisitas";
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -44,7 +46,9 @@ const App = () => {
         <Route path="/panel_administrador=editar" element={<EditarProp />} />
         <Route path="/panel_administrador=crear" element={<CrearProp />} />
         <Route path="/panel_administrador=ver-usuarios" element={<ListaUsuarios />} />
+        <Route path="/panel_administrador=ver-visitas" element={<LIstaVisitas />} />
         <Route path="/editar-propiedad/:prop_id" element={<FormEditarProps />} />
+        <Route path="/confirmacion-de-reserva" element={<MailExito />} />
       </Routes>
     </>
   );

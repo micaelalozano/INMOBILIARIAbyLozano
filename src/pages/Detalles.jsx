@@ -15,7 +15,7 @@ const Detalles = () => {
   const [propiedades, setPropiedades] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   //NodeMailer
-  const [propiedad, setPropiedad] = useState("");
+  const [direccion, setDireccion] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
@@ -45,12 +45,12 @@ const Detalles = () => {
     axios
       .post(
         "/api/visitas",
-        { propiedad, nombre, apellido, email, fecha, horario },
+        { direccion, nombre, apellido, email, fecha, horario },
         { withCredentials: true }
       )
       .then((res) => res.data)
       .then(() => {
-        navigate("/");
+        navigate("/confirmacion-de-reserva");
       });
   };
 
@@ -100,19 +100,20 @@ const Detalles = () => {
               aria-describedby="modal-modal-description"
             >
               <div className="modal-contenedor">
-                <form
-                  onSubmit={handleSubmit}
-                  action="post"
-                  className="form-modal"
-                >
+                <form className="form-modal" onSubmit={handleSubmit}>
                   <label className="label-visita">Propiedad</label>
-                  <input
+                  <select
+                    type="file"
                     required
-                    type="text"
                     className="input-visita"
-                    onChange={(e) => setPropiedad(e.target.value)}
-                    value={propiedad}
-                  />
+                    onChange={(e) => setDireccion(e.target.value)}
+                    value={direccion}
+                  >
+                    <option></option>
+                    <option>
+                      {propiedades.direccion},{propiedades.ubicacion}
+                    </option>
+                  </select>
                   <label className="label-visita">Nombre</label>
                   <input
                     required
