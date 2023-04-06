@@ -47,4 +47,13 @@ router.get("/", (req, res) => {
   });
 });
 
+//Eliminar usuarios:
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+
+  Visitas.destroy({ where: { id } }).then((data) => {
+    res.send("Eliminado");
+  });
+});
+
 module.exports = router;

@@ -226,6 +226,7 @@
     position: relative;
     text-align: left;
     width: 100%;
+    max-width: 740px;
     margin-top: 20px;
     background-color: #222;
     border-bottom: 2.5px solid white;

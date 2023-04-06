@@ -86,59 +86,64 @@ const ListaUsuarios = () => {
                 Lista de usuarios registrados
               </p>
             </div>
-            {result.map(function (e, i) {
-              return (
-                <div className="lista-de-usuarios">
-                  <div className="div-list-user">
-                    <img
-                      className="div-list-user-img"
-                      src={
-                        e.imagen
-                          ? e.imagen
-                          : "https://i.pinimg.com/170x/5f/03/10/5f0310152c8429dfbc441e99d5a8e33e.jpg"
-                      }
-                      alt=""
-                    />
-                  </div>
-                  <div className="name-div">
-                    <p className="name-div-p">
-                      {e.name}{" "}
-                      {e.lastname[0].toUpperCase() + e.lastname.substring(1)}
-                    </p>
-                  </div>
-                  {e.username === "soymicaela" ? (
-                    <div className="delete-div">
-                      <span
-                        className="tooltip-userlist"
-                        mensaje="Usuario administrador"
-                      >
-                        <button className="btn-delete-user">
-                          <span className="icon-manage-user">
-                            manage_accounts
-                          </span>
-                        </button>
-                      </span>
-                    </div>
-                  ) : (
-                    <div className="delete-div">
-                      <span
-                        className="tooltip-userlist"
-                        mensaje="Eliminar usuario"
-                      >
-                        <Link to="/">
-                          <button
-                            className="btn-delete-user"
-                            onClick={() => handleDelete(e.id)}
+            <ul>
+              {result.map(function (e, i) {
+                return (
+                  <li key={i}>
+                    <div className="lista-de-usuarios">
+                      <div className="div-list-user">
+                        <img
+                          className="div-list-user-img"
+                          src={
+                            e.imagen
+                              ? e.imagen
+                              : "https://i.pinimg.com/170x/5f/03/10/5f0310152c8429dfbc441e99d5a8e33e.jpg"
+                          }
+                          alt=""
+                        />
+                      </div>
+                      <div className="name-div">
+                        <p className="name-div-p">
+                          {e.name}{" "}
+                          {e.lastname[0].toUpperCase() +
+                            e.lastname.substring(1)}
+                        </p>
+                      </div>
+                      {e.username === "soymicaela" ? (
+                        <div className="delete-div">
+                          <span
+                            className="tooltip-userlist"
+                            mensaje="Usuario administrador"
                           >
-                            <span className="icon-delete-user">delete</span>
-                          </button>
-                        </Link>
-                      </span>
+                            <button className="btn-delete-user">
+                              <span className="icon-manage-user">
+                                manage_accounts
+                              </span>
+                            </button>
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="delete-div">
+                          <span
+                            className="tooltip-userlist"
+                            mensaje="Eliminar usuario"
+                          >
+                            <Link to="/">
+                              <button
+                                className="btn-delete-user"
+                                onClick={() => handleDelete(e.id)}
+                              >
+                                <span className="icon-delete-user">delete</span>
+                              </button>
+                            </Link>
+                          </span>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              );
-            })}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </>
       ) : (
