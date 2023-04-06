@@ -79,7 +79,7 @@ const FavsList = () => {
                         className="tooltip-remove"
                         mensaje="Eliminar de favoritos"
                       >
-                        <Link to="/">
+                        <Link to="/k">
                           <FavoriteIcon
                             sx={{ fontSize: 26 }}
                             style={{ color: "#ff69b4" }}

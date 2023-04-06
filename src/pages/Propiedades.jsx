@@ -136,7 +136,7 @@ const Propiedades = () => {
                       mensaje="Agregar a favoritos"
                     >
                       {misFavoritos.some((data) => data.id === e.id) ? (
-                        <Link to="/">
+                        <Link to="/k">
                           <FavoriteIcon
                             sx={{ fontSize: 20 }}
                             style={{ color: "#ff69b4" }}
@@ -144,7 +144,7 @@ const Propiedades = () => {
                           />
                         </Link>
                       ) : (
-                        <Link to="/">
+                        <Link to="/k">
                           <FavoriteBorderIcon
                             sx={{ fontSize: 20 }}
                             style={{ color: "#ff69b4" }}
