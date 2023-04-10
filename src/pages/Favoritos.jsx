@@ -8,6 +8,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import FavsList from "../components/FavsList";
+import IniciarWarning from "../components/IniciarWarning";
 //Estilos
 import "../estilos/favoritos.css";
 
@@ -124,7 +125,7 @@ const Favoritos = () => {
         </>
       ) : (
         <>
-          <p>Necesitas iniciar sesion</p>
+          <IniciarWarning />
         </>
       )}
     </>

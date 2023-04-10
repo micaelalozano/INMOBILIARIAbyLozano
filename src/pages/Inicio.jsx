@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer";
 import HeroImage from "../components/HeroImage";
 import Navbar from "../components/Navbar";
 //Estilos
@@ -35,6 +36,7 @@ const Inicio = () => {
           />
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

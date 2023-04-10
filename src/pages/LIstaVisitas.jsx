@@ -111,7 +111,7 @@ const LIstaVisitas = () => {
                           className="tooltip-userlist"
                           mensaje="Eliminar reserva"
                         >
-                          <Link to="/.">
+                          <Link to="/8">
                             <button className="btn-delete-user">
                               <span className="icon-delete-user">delete</span>
                             </button>

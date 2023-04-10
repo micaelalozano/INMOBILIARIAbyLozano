@@ -8,6 +8,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 //Estilos
 import "../estilos/propiedades.css";
+import Footer from "../components/Footer";
 
 const Propiedades = () => {
   const navigate = useNavigate();
@@ -97,13 +98,18 @@ const Propiedades = () => {
     console.log(e.target.value);
   };
 
+  //Ordenar propiedades por fecha.
+
+  propiedades.sort(
+    (a, b) => new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime()
+  );
+
   //Metodo de filtrado:
   const result = !search
     ? propiedades
     : propiedades.filter((data) =>
         data.ubicacion.toLowerCase().includes(search.toLowerCase())
       );
-
 
   if (isLoading) {
     return <Spinner />;
@@ -170,6 +176,7 @@ const Propiedades = () => {
           })}
         </div>
       </ul>
+      <Footer/>
     </>
   );
 };

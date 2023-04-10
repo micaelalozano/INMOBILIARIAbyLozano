@@ -13,8 +13,8 @@ router.post("/", (req, res) => {
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: "nodemailer.1995@gmail.com", //gmail crearme un nuevo gmail de prueba
-      pass: "tpuzmufiahlpvike", // gmail
+      user: "by.lozano.16@gmail.com", //gmail crearme un nuevo gmail de prueba
+      pass: "omigppzohhktjrsx", // gmail
     },
     tls: {
       rejectUnauthorized: false,
@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
   });
 
   transporter.sendMail({
-    from: `"INMOBILIARIA"`,
+    from: "`INMOBILIARIA`",
     to: `${email}`,
     subject: "Confirmacion de cita",
     text: `Hola ${nombre} ${apellido} enviamos este mail para confirmar tu cita para el dia ${fecha} a las ${horario} en la direccion ${direccion}.`,
@@ -47,7 +47,7 @@ router.get("/", (req, res) => {
   });
 });
 
-//Eliminar usuarios:
+//Eliminar reserva:
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
 

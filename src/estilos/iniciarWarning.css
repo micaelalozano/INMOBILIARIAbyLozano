@@ -1,0 +1,60 @@
+.warning {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #111;
+  height: 100vh;
+  text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000,
+    1px -1px 1px #000;
+  color: lightsteelblue;
+  font-size: 18px;
+}
+
+.opciones {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.opc-1 {
+  margin-right: 20px;
+  font-size: 14.5px;
+}
+
+.opc-2 {
+  font-size: 14.5px;
+}
+
+.opc-1:hover {
+  color: rgb(197, 193, 193);
+  transition: all 0.2s ease;
+  text-decoration: underline 0.2em rgba(255, 255, 255, 0);
+  transition: text-decoration-color 300ms;
+  text-decoration-color: hotpink;
+  text-shadow: rgba(121, 108, 111, 0.178) 0.1em 0.1em 0.2em;
+}
+
+.opc-2:hover {
+  color: rgb(197, 193, 193);
+  transition: all 0.2s ease;
+  text-decoration: underline 0.2em rgba(255, 255, 255, 0);
+  transition: text-decoration-color 300ms;
+  text-decoration-color: hotpink;
+  text-shadow: rgba(121, 108, 111, 0.178) 0.1em 0.1em 0.2em;
+}
+
+@media screen and (max-width: 500px) {
+  .warning {
+    font-size: 15px;
+  }
+
+  .opc-1 {
+    font-size: 13.5px;
+  }
+
+  .opc-2 {
+    font-size: 13.5px;
+  }
+}
