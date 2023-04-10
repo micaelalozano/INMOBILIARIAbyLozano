@@ -61,8 +61,45 @@
   padding: 0 15px;
 }
 
+/* FOOTER */
+
+.footer-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 1em 2em;
+  color: aliceblue;
+  font-size: 14px;
+}
+
+.iconos-c {
+  display: flex;
+  width: 100%;
+  max-width: 265px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.by-ml {
+  font-weight: 600;
+  color: aliceblue;
+  font-size: 15px;
+}
+
 @media screen and (max-width: 740px) {
   .card-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .mail {
+    display: none;
+  }
+
+  .iconos-c {
+    width: 100%;
+    max-width: 65px;
   }
 }
