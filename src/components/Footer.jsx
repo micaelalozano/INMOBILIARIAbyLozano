@@ -13,8 +13,8 @@ const Footer = () => {
         </div>
         <div className="iconos-c">
           <p className="mail">micaelalozano95@gmail.com</p>
-          <LinkedInIcon sx={{ fontSize: 30 }} style={{ color: "#ff69b4" }} />
-          <GitHubIcon sx={{ fontSize: 28 }} style={{ color: "#ff69b4" }} />
+          <LinkedInIcon sx={{ fontSize: 28 }} style={{ color: "#ff69b4" }} />
+          <GitHubIcon sx={{ fontSize: 26 }} style={{ color: "#ff69b4" }} />
         </div>
       </div>
     </>
