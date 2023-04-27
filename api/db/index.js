@@ -6,6 +6,4 @@ const db = new Sequelize("joker", null, null, {
   logging: false,
 });
 
-/* todavia no cree la db*/
-
 module.exports = db;
