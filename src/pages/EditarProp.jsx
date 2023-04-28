@@ -39,6 +39,12 @@ const EditarProp = () => {
     return <Spinner />;
   }
 
+  //Ordenar de mas nuevo a mas viejo:
+
+  propiedades.sort(
+    (a, b) => new Date(b.createdAt).getTime() > new Date(a.createdAt).getTime()
+  );
+
   return (
     <>
       <NavbarDos />

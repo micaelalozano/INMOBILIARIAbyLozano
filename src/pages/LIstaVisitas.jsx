@@ -63,8 +63,12 @@ const LIstaVisitas = () => {
     return <Spinner />;
   }
 
-  console.log("lista aca0", listaVisitas);
+  //Ordenar de mas nuevo a mas viejo:
 
+  result.sort(
+    (a, b) => new Date(b.createdAt).getTime() > new Date(a.createdAt).getTime()
+  );
+  
   return (
     <>
       {user.username === "soymicaela" ? (
