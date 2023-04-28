@@ -16,6 +16,7 @@ import CrearProp from "./pages/CrearProp";
 import FormEditarProps from "./pages/FormEditarProps";
 import MailExito from "./components/MailExito";
 import LIstaVisitas from "./pages/LIstaVisitas";
+import About from "./pages/About";
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/registrarme" element={<Register />} />
         <Route path="/mis_favoritos" element={<Favoritos />} />
+        <Route path="/acerca_de" element={<About />} />
         <Route path="/cambiar-foto-de-perfil/:id" element={<CambiarPerfil />} />
         <Route path="/propiedades=ver_todo" element={<Propiedades />} />
         <Route path="/propiedades=en_venta" element={<Venta />} />

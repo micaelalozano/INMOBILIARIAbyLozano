@@ -1,0 +1,11 @@
+.about-contenedor {
+  display: flex;
+  flex-direction: column;
+  height: 91vh;
+  padding: 2em 3em;
+}
+
+.about-p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}

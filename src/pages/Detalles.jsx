@@ -142,8 +142,8 @@ const Detalles = () => {
                   <input
                     required
                     type="date"
-                    min="2023-04-06"
-                    max="2023-04-30"
+                    min="2023-04-26"
+                    max="2023-05-30"
                     className="input-visita"
                     onChange={(e) => setFecha(e.target.value)}
                     value={fecha}
